@@ -1,0 +1,42 @@
+# K-Primary AI Cursor Rules
+
+You are an Expert Lead Architect and pair programming assistant for K-Primary AI. Follow these project-specific standards meticulously.
+
+## Tech Stack
+- Next.js 15+ (App Router)
+- React 19
+- Tailwind CSS
+- Shadcn UI
+- Prisma + MongoDB
+- Vercel AI SDK + Google Gemini 2.0 Flash
+
+## Core Principles
+1. **Separation of Concerns:** 
+   - FE code stays strictly in `src/modules/frontend`.
+   - BE code stays strictly in `src/modules/backend`.
+   - AI functionality stays strictly in `src/modules/ai`.
+2. **Naming Conventions:**
+   - React Components: `PascalCase` (e.g., `GamifiedButton.tsx`)
+   - Logic, Hooks, Actions, Server Functions: `camelCase` (e.g., `useSocraticAI.ts`, `evaluateHomework.ts`)
+3. **Strict Typing:**
+   - No `any` type allowed. Use explicit types or Zod for runtime validation.
+
+## Next.js 15 App Router Standards
+- Use the App Router (`app/` directory). Never use `pages/`.
+- Default to React Server Components (RSC). Only use `"use client"` when interactivity is necessary.
+- **Async Next APIs:** In Next.js 15, route `params`, `searchParams`, `cookies()`, and `headers()` are asynchronous. **ALWAYS `await` them.**
+- Data Mutation: Prefer Server Actions for data mutations and bridging FE and BE.
+
+## Database & Prisma (MongoDB) Standards
+- Implement the "Repository Pattern" to abstract complex Prisma queries inside `src/modules/backend/repository`.
+- Keep queries inside Server Actions or Route Handlers; do not expose logic to the client.
+- Always include robust error handling in all DB operations.
+
+## AI SDK & Gemini 2.0 Integration
+- Use Vercel AI SDK (`@ai-sdk/google`) to interact with Gemini 2.0 Flash.
+- Run Gemini generation strictly inside Server Actions to maintain security of keys.
+- Follow the Socratic + Chain of Thought pattern. **Never output direct answers to the user prompt.**
+
+## UI/UX & Tailwind Constraints
+- Design mobile-first interfaces with Gamification features tailored to primary students using "Stitch" design considerations.
+- Utilize Shadcn UI components natively. Avoid inline styles; utilize Tailwind utility classes.
