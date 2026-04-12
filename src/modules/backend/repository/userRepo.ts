@@ -1,6 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../../lib/db';
 
-const prisma = new PrismaClient();
 
 // Complex DB queries here
 export const userRepo = {

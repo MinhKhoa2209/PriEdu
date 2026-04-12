@@ -1,5 +1,6 @@
 import { submissionRepo } from '../../../modules/backend/repository/submissionRepo';
-import SocraticChat from '../../../modules/frontend/components/ai/SocraticChat';
+import SocraticChat from '../../../modules/frontend/components/features/ai/SocraticChat';
+import { SubmissionCard } from '../../../modules/frontend/components/features/student/SubmissionCard';
 import Link from 'next/link';
 
 export default async function StudentDashboard({ 
@@ -56,18 +57,7 @@ export default async function StudentDashboard({
           <div className="grid gap-4">
             <h2 className="text-xl font-semibold text-slate-700">Recent Assignments</h2>
             {submissions.map(sub => (
-              <div key={sub.id} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center justify-between">
-                <div>
-                  <div className="text-sm text-slate-500 mb-1">Score: {sub.correctnessScore}/10</div>
-                  <p className="text-slate-800 line-clamp-2 max-w-md">{sub.extractedText || 'Image submission'}</p>
-                </div>
-                <Link
-                  href={`?chat=${sub.id}`}
-                  className="bg-[#4f46e5] text-white px-6 py-2 rounded-full font-medium shadow-sm hover:bg-indigo-700 hover:shadow-md transition-all active:scale-95"
-                >
-                  Start Socratic Tutoring
-                </Link>
-              </div>
+              <SubmissionCard key={sub.id} submission={sub} />
             ))}
             {submissions.length === 0 && (
               <div className="p-8 text-center text-slate-500 border-2 border-dashed border-slate-200 rounded-2xl">

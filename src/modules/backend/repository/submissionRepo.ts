@@ -1,7 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../../lib/db';
 import type { OcrResult } from '../../../shared/validation';
 
-const prisma = new PrismaClient();
 
 export const submissionRepo = {
   saveSubmission: async (studentId: string, imageUrl: string, ocrData: OcrResult) => {
