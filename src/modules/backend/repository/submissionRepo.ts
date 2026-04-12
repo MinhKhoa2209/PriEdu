@@ -15,5 +15,18 @@ export const submissionRepo = {
         neatnessScore: ocrData.neatnessScore,
       }
     });
+  },
+
+  getSubmissionById: async (id: string) => {
+    return prisma.submission.findUnique({
+      where: { id }
+    });
+  },
+
+  getSubmissionsByStudentId: async (studentId: string) => {
+    return prisma.submission.findMany({
+      where: { studentId },
+      orderBy: { createdAt: 'desc' }
+    });
   }
 };
