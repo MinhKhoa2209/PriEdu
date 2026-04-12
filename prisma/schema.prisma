@@ -18,6 +18,17 @@ model User {
   role  Role    @default(STUDENT)
 }
 
+model Submission {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  studentId        String   @db.ObjectId
+  imageUrl         String
+  extractedText    String
+  feedback         String
+  correctnessScore Float
+  neatnessScore    Float
+  createdAt        DateTime @default(now())
+}
+
 enum Role {
   STUDENT
   TEACHER
