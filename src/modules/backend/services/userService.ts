@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { userRepo } from '../repository/userRepo';
 
 export const userService = {
-  findAll: () => prisma.user.findMany(),
-}
+  findAll: () => userRepo.findAll(),
+};
