@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PriEdu | AI Grading Interface</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .staircase-item:nth-child(2) { margin-left: 8px; }
+        .staircase-item:nth-child(3) { margin-left: 16px; }
+        .staircase-item:nth-child(4) { margin-left: 24px; }
+        
+        .btn-3d-primary {
+            box-shadow: 0 4px 0 0 #3525cd;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .btn-3d-primary:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 #3525cd;
+        }
+        .btn-3d-primary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 #3525cd;
+        }
+
+        .btn-3d-secondary {
+            box-shadow: 0 4px 0 0 #1b6b4f;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .btn-3d-secondary:hover {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 #1b6b4f;
+        }
+        .btn-3d-secondary:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 0 #1b6b4f;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#e2c62d",
+                        "surface-dim": "#cfdaf2",
+                        "on-primary-fixed": "#0f0069",
+                        "secondary-fixed-dim": "#8bd6b4",
+                        "surface-variant": "#d8e3fb",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#4f46e5",
+                        "on-secondary-container": "#247155",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "on-tertiary-fixed": "#211b00",
+                        "secondary-container": "#a6f2cf",
+                        "inverse-surface": "#263143",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "tertiary-fixed": "#ffe24c",
+                        "background": "#f9f9ff",
+                        "on-tertiary-container": "#4a3f00",
+                        "on-surface": "#111c2d",
+                        "outline-variant": "#c7c4d8",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-primary-container": "#dad7ff",
+                        "surface-container": "#e7eeff",
+                        "inverse-on-surface": "#ecf1ff",
+                        "primary": "#3525cd",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "on-background": "#111c2d",
+                        "tertiary-container": "#c4aa01",
+                        "surface-bright": "#f9f9ff",
+                        "surface-container-high": "#dee8ff",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface": "#f9f9ff",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#a6f2cf",
+                        "outline": "#777587",
+                        "inverse-primary": "#c3c0ff",
+                        "error": "#ba1a1a",
+                        "tertiary": "#6d5e00",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary": "#1b6b4f",
+                        "primary-fixed": "#e2dfff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#002115",
+                        "surface-tint": "#4d44e3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.25rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-6 bg-indigo-50 dark:bg-indigo-950 h-screen w-64 rounded-r-2xl shadow-[0_32px_32px_-16px_rgba(79,70,229,0.06)] z-50">
+<div class="px-6 mb-8">
+<h1 class="text-2xl font-bold tracking-tight text-indigo-700 dark:text-indigo-300">PriEdu</h1>
+<p class="text-xs text-slate-500 font-medium uppercase tracking-widest mt-1">The Digital Mentor</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- AI Tutor is active for this grading context -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-indigo-100/50 transition-colors font-plus-jakarta text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-indigo-100/50 transition-colors font-plus-jakarta text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="videogame_asset">videogame_asset</span>
+                Homework
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-indigo-700 dark:text-indigo-300 font-bold border-r-4 border-indigo-600 bg-indigo-100/50 translate-x-1 transition-transform duration-200 font-plus-jakarta text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                AI Tutor
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-indigo-100/50 transition-colors font-plus-jakarta text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+                Exams
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-indigo-100/50 transition-colors font-plus-jakarta text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-6 pt-6 mt-auto border-t border-indigo-100/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a professional male educator in a modern office with soft warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5UARW4S-R18rgFq76ielpEHC5JXuCtL7B7k3BQAJOVQT5qq3GThJSdbjxiRz58L7iQbseOR0H95QCb6l7WRhH0jxJCYD8e_9CS5k0RqpDoLk0NOAn--tWXv0mPdz_dO2rJejoIZrvfrHuAiJ_UOzWA3e_m0Y1uOdmY2pNwMPUQGw0FPQjos3X-_51Ysaq2--m-VV6rwJuDjM4XDyz2BnJUW89UMnPOrbEGFTQS_g7bFNF0PW-jM_B0p67nBxtNTM-V3tQD-F46T7"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Prof. Anderson</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Senior Examiner</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Execution from JSON) -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm lg:pl-72">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="bg-surface-container-high border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary-container/20 w-64 transition-all" placeholder="Search student records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:text-indigo-600 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-indigo-600 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<div class="h-6 w-px bg-outline-variant/30 mx-1"></div>
+<div class="flex items-center gap-2 text-sm font-medium text-slate-600">
+<span class="material-symbols-outlined text-indigo-600" data-icon="language">language</span>
+                English/VN
+            </div>
+</div>
+</header>
+<main class="lg:ml-64 p-4 lg:p-8 pb-32">
+<!-- Header Section -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<nav class="flex items-center gap-2 text-[10px] uppercase font-bold tracking-widest text-on-surface-variant mb-2">
+<span>AI Tutor</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Grading Interface</span>
+</nav>
+<h2 class="text-4xl lg:text-5xl font-extrabold tracking-tight text-primary -ml-1">History Exam 101</h2>
+<p class="text-on-surface-variant font-medium mt-1">Student: <span class="text-on-surface">Leo Harrison</span> • Submitted 2h ago</p>
+</div>
+<div class="flex gap-3">
+<button class="btn-3d-secondary bg-secondary-container text-on-secondary-container px-6 py-3 rounded-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+                    Save Draft
+                </button>
+<button class="btn-3d-primary bg-primary-container text-white px-8 py-3 rounded-lg font-bold flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="publish">publish</span>
+                    Publish Grade
+                </button>
+</div>
+</div>
+<!-- Main Comparison Canvas -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Left Panel: Original OCR -->
+<div class="space-y-4">
+<div class="flex items-center justify-between px-2">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant">Handwritten Submission</h3>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+</button>
+</div>
+</div>
+<div class="relative bg-surface-container-lowest rounded-lg shadow-sm p-8 min-h-[600px] overflow-hidden group">
+<!-- The Document Image -->
+<div class="absolute inset-0 opacity-10 bg-[url('https://openui.fly.dev/openui/600x800.svg?text=Paper+Texture')] mix-blend-multiply"></div>
+<div class="relative z-10 space-y-6">
+<div class="relative">
+<span class="bg-primary-container/20 border-b-2 border-primary-container text-transparent select-none rounded-sm px-1">The French Revolution began in 1789.</span>
+<div class="absolute -top-6 left-0 bg-primary-container text-white text-[10px] font-bold px-2 py-0.5 rounded-sm">CONFIDENCE 98%</div>
+<p class="text-xl font-medium text-slate-800 leading-relaxed font-serif">The French Revolution began in 1789.</p>
+</div>
+<div class="relative">
+<span class="bg-error-container/40 border-b-2 border-error text-transparent select-none rounded-sm px-1">It was caused by bread shortage.</span>
+<div class="absolute -top-6 left-0 bg-error text-white text-[10px] font-bold px-2 py-0.5 rounded-sm">AMBIGUOUS OCR</div>
+<p class="text-xl font-medium text-slate-800 leading-relaxed font-serif">It was caused by bread shortage and taxation.</p>
+</div>
+<div class="relative">
+<span class="bg-secondary-container/30 border-b-2 border-secondary text-transparent select-none rounded-sm px-1">King Louis XVI was the monarch.</span>
+<p class="text-xl font-medium text-slate-800 leading-relaxed font-serif">King Louis XVI was the monarch at the time.</p>
+</div>
+<div class="mt-12 border-l-4 border-primary-container/30 pl-6 py-4 italic text-slate-400">
+                            (Rest of the page contents being processed...)
+                        </div>
+</div>
+<!-- Overlay decorative element -->
+<div class="absolute bottom-4 right-4 bg-white/60 backdrop-blur-md p-3 rounded-xl flex items-center gap-3 border border-outline-variant/10">
+<span class="material-symbols-outlined text-secondary" data-icon="verified">verified</span>
+<span class="text-xs font-bold uppercase">AI Scan Active</span>
+</div>
+</div>
+</div>
+<!-- Right Panel: AI Results -->
+<div class="space-y-6">
+<!-- Score Bento Card -->
+<div class="bg-primary-container rounded-lg p-8 text-white relative overflow-hidden shadow-lg">
+<div class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mr-24 -mt-24 blur-3xl"></div>
+<div class="relative z-10 flex items-center justify-between">
+<div>
+<p class="text-[10px] uppercase font-bold tracking-widest opacity-80">Automated AI Assessment</p>
+<h3 class="text-5xl font-black mt-2">88<span class="text-2xl opacity-60">/100</span></h3>
+<div class="mt-4 flex gap-2">
+<span class="bg-secondary text-[10px] font-bold px-3 py-1 rounded-full">+12% vs last exam</span>
+<span class="bg-white/20 text-[10px] font-bold px-3 py-1 rounded-full">Top 5% of class</span>
+</div>
+</div>
+<div class="hidden sm:block">
+<div class="w-24 h-24 rounded-full border-8 border-white/20 border-t-white flex items-center justify-center">
+<span class="text-xl font-bold">A-</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Analysis Tabs -->
+<div class="bg-surface-container-low rounded-lg p-6">
+<h3 class="text-sm font-bold uppercase tracking-widest text-on-surface-variant mb-6">AI Key Takeaways</h3>
+<div class="space-y-4">
+<!-- Staircase Layout -->
+<div class="staircase-item bg-surface-container-lowest p-4 rounded-xl shadow-sm flex gap-4 border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Historical Accuracy</p>
+<p class="text-xs text-on-surface-variant mt-1">Excellent grasp of dates and key figures. 1789 and Louis XVI cited correctly.</p>
+</div>
+</div>
+<div class="staircase-item bg-surface-container-lowest p-4 rounded-xl shadow-sm flex gap-4 border-l-4 border-tertiary">
+<span class="material-symbols-outlined text-tertiary" data-icon="tips_and_updates">tips_and_updates</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Critical Thinking</p>
+<p class="text-xs text-on-surface-variant mt-1">Identified bread shortages as a catalyst, but missed the Enlightenment influence.</p>
+</div>
+</div>
+<div class="staircase-item bg-surface-container-lowest p-4 rounded-xl shadow-sm flex gap-4 border-l-4 border-primary">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Structure &amp; Flow</p>
+<p class="text-xs text-on-surface-variant mt-1">The narrative is linear and easy to follow. Good vocabulary usage.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Feedback Section -->
+<div class="space-y-4">
+<label class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant px-2">Teacher Feedback Overlay</label>
+<div class="relative">
+<textarea class="w-full bg-surface-container-high border-none rounded-lg p-4 text-sm focus:ring-2 focus:ring-primary-container/20 placeholder:text-outline" placeholder="Add your manual comments here... AI suggestions can be edited." rows="4"></textarea>
+<div class="absolute bottom-3 right-3 flex gap-2">
+<button class="bg-white/80 backdrop-blur p-2 rounded-lg text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="mic">mic</span>
+</button>
+<button class="bg-white/80 backdrop-blur p-2 rounded-lg text-primary hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="attachment">attachment</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Execution from JSON) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white dark:bg-slate-900 rounded-t-2xl shadow-[0_-4px_20px_rgba(79,70,229,0.1)]">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-200 rounded-xl px-3 py-1 -translate-y-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Tutor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Tests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<span class="material-symbols-outlined" data-icon="settings_accessibility">settings_accessibility</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Settings</span>
+</a>
+</nav>
+<!-- Floating Action Feedback (Optional) -->
+<div class="fixed bottom-10 right-10 hidden lg:block">
+<button class="bg-indigo-700 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center btn-3d-primary">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</button>
+</div>
+</body></html>

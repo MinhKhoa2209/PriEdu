@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PriEdu | Teacher Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600&amp;family=Geist+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed": "#5f5e5e",
+                      "on-error-container": "#410002",
+                      "on-tertiary-fixed": "#ffffff",
+                      "surface-container-high": "#e8e8e8",
+                      "secondary-fixed-dim": "#acabab",
+                      "secondary-container": "#d5d4d4",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "tertiary": "#3c3b3b",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#eeeeee",
+                      "primary-container": "#3c3b3b",
+                      "inverse-surface": "#2f3131",
+                      "on-tertiary-container": "#ffffff",
+                      "secondary-fixed": "#c7c6c6",
+                      "surface-dim": "#dadada",
+                      "primary": "#000000",
+                      "on-background": "#1a1c1c",
+                      "inverse-primary": "#c8c6c5",
+                      "on-primary": "#e5e2e1",
+                      "on-tertiary": "#e4e2e1",
+                      "surface-variant": "#e2e2e2",
+                      "on-secondary-container": "#1b1c1c",
+                      "on-surface": "#1a1c1c",
+                      "outline-variant": "#c6c6c6",
+                      "surface-container-highest": "#e2e2e2",
+                      "on-primary-fixed": "#ffffff",
+                      "tertiary-fixed": "#5f5e5e",
+                      "background": "#f9f9f9",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#ffffff",
+                      "surface-bright": "#f9f9f9",
+                      "surface-container-low": "#f3f3f3",
+                      "surface": "#f9f9f9",
+                      "on-tertiary-fixed-variant": "#e4e2e1",
+                      "outline": "#777777",
+                      "error-container": "#ffdad6",
+                      "on-surface-variant": "#474747",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "primary-fixed-dim": "#474646",
+                      "secondary": "#5e5e5e",
+                      "on-secondary-fixed-variant": "#3b3b3b",
+                      "on-primary-fixed-variant": "#e5e2e1",
+                      "tertiary-fixed-dim": "#474746",
+                      "tertiary-container": "#757474",
+                      "surface-tint": "#5f5e5e",
+                      "inverse-on-surface": "#f0f1f1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Inter"],
+                      "body": ["Inter"],
+                      "label": ["Space Grotesk"],
+                      "mono": ["Geist Mono"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-label { font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-black selection:text-white">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 bg-slate-50 dark:bg-zinc-900 border-r border-transparent z-50">
+<div class="p-8">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-black flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm" data-icon="school">school</span>
+</div>
+<div class="flex flex-col">
+<span class="text-lg font-bold tracking-tighter text-black dark:text-white">PriEdu</span>
+<span class="font-label text-[0.65rem] uppercase font-bold tracking-widest text-zinc-500">Academic Portal</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-black dark:text-white font-bold border-r-2 border-black dark:border-white bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label text-[0.75rem] uppercase font-bold">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label text-[0.75rem] uppercase font-bold">Curriculum</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="font-label text-[0.75rem] uppercase font-bold">Assessments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-label text-[0.75rem] uppercase font-bold">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label text-[0.75rem] uppercase font-bold">Resources</span>
+</a>
+</nav>
+<div class="p-6 space-y-4">
+<button class="w-full py-3 bg-black text-white font-label text-[0.75rem] uppercase font-bold tracking-widest hover:bg-zinc-800 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Session
+            </button>
+<div class="pt-4 border-t border-zinc-200 dark:border-zinc-800 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 text-[0.75rem] font-label uppercase font-bold hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[1.2rem]" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 text-[0.75rem] font-label uppercase font-bold hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[1.2rem]" data-icon="help_outline">help_outline</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-8 h-16 sticky top-0 z-40 bg-white/70 dark:bg-black/70 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-6 w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-highest border-none h-10 pl-10 pr-4 text-sm focus:ring-1 focus:ring-black rounded-none" placeholder="Search students, curriculum, or files..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-zinc-500 hover:text-black transition-opacity">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-black transition-opacity">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<div class="h-8 w-px bg-zinc-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-[0.75rem] font-bold font-label uppercase leading-none">Prof. Anderson</p>
+<p class="text-[0.65rem] font-mono text-zinc-500">ID: PR-9421</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 grayscale rounded-none object-cover border border-zinc-200" data-alt="Close up portrait of a professional male academic with spectacles and a thoughtful expression, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvYSZ8AL-0LZF_3-qUsCN9YIvKOn1mseh8ycW6HcieabUYQ0kHIuA-_65ZoA28IztgoiOdYv5X5i29ILnPjvC2UkzFuAli8v-HeBl-6fwPIJ4hYR3bQkf_JwZmC2qHQC_cf3389BmUYFBTxHcS2rbOL5PpxS3VLNKsAeF3DbqYfbbJ3Ipff1D6iobRJP-jsExt5DzOw7fJCNVhOqv0cL-r_S_pOYAPb8d-cFDNKD9_8JqZ8XAnfd9H1-yjwKIllIZkIxPrnfLUTU-r"/>
+</div>
+</div>
+</header>
+<!-- Content Body -->
+<div class="p-8 max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="mb-12 flex items-end justify-between">
+<div>
+<h1 class="text-4xl font-bold tracking-tighter mb-2">Academic Overview</h1>
+<p class="text-zinc-500 font-mono text-sm uppercase tracking-wide">Term 03 — Week 12 — Performance Metrics</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-low px-4 py-2 flex flex-col">
+<span class="font-label text-[0.65rem] uppercase font-bold text-zinc-500">Class Average</span>
+<span class="font-mono text-xl font-bold">84.2%</span>
+</div>
+<div class="bg-surface-container-low px-4 py-2 flex flex-col">
+<span class="font-label text-[0.65rem] uppercase font-bold text-zinc-500">Attendance</span>
+<span class="font-mono text-xl font-bold">98.1%</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-12 gap-8">
+<!-- AI Insights Column -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<section class="bg-black text-white p-8">
+<div class="flex items-center gap-2 mb-6 text-zinc-400">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+<span class="font-label text-[0.7rem] uppercase font-bold tracking-widest">AI Synthesis Engine</span>
+</div>
+<h2 class="text-2xl font-bold mb-4">Knowledge Gaps</h2>
+<div class="space-y-6">
+<div class="group border-l border-zinc-800 pl-4 py-1">
+<h3 class="font-bold text-sm mb-1 group-hover:text-zinc-300 transition-colors">Complex Geometry Principles</h3>
+<p class="text-xs text-zinc-500 font-mono">14 students showing hesitation in 3D-projection logic. Recommended intervention: Visual spatial exercise module B2.</p>
+</div>
+<div class="group border-l border-zinc-800 pl-4 py-1">
+<h3 class="font-bold text-sm mb-1 group-hover:text-zinc-300 transition-colors">Causal History Analysis</h3>
+<p class="text-xs text-zinc-500 font-mono">High error rate (22%) on linking socio-economic factors to treaty outcomes. Suggest review session.</p>
+</div>
+</div>
+<button class="mt-8 w-full py-3 border border-zinc-800 text-[0.7rem] font-label uppercase font-bold tracking-widest hover:bg-zinc-900 transition-colors">
+                            Generate Lesson Plan
+                        </button>
+</section>
+<section class="bg-surface-container-low p-8">
+<span class="font-label text-[0.7rem] uppercase font-bold text-zinc-400 block mb-6">Upcoming Agenda</span>
+<div class="space-y-4">
+<div class="flex justify-between items-start pb-4 border-b border-zinc-200">
+<div>
+<p class="font-bold text-sm">Advanced Calculus Quiz</p>
+<p class="text-[0.65rem] font-mono text-zinc-500">09:00 — ROOM 402</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex justify-between items-start pb-4 border-b border-zinc-200">
+<div>
+<p class="font-bold text-sm">Faculty Review Session</p>
+<p class="text-[0.65rem] font-mono text-zinc-500">14:30 — VIRTUAL HOOK</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Main Tasks Column -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Performance Chart Placeholder -->
+<section class="bg-surface-container-lowest p-8 border border-transparent shadow-[0_20px_40px_rgba(0,0,0,0.01)]">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-xl font-bold tracking-tight">Class Progression Matrix</h2>
+<div class="flex gap-4 font-mono text-[0.65rem] uppercase">
+<span class="flex items-center gap-1"><span class="w-2 h-2 bg-black"></span> Grade Avg</span>
+<span class="flex items-center gap-1 text-zinc-400"><span class="w-2 h-2 bg-zinc-200"></span> Previous Term</span>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-2 px-4">
+<!-- Simulated technical chart -->
+<div class="w-full flex items-end gap-1 group">
+<div class="w-full bg-zinc-100 h-[60%] hover:bg-zinc-200 transition-all"></div>
+<div class="w-full bg-black h-[75%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[55%]"></div>
+<div class="w-full bg-black h-[70%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[80%]"></div>
+<div class="w-full bg-black h-[85%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[45%]"></div>
+<div class="w-full bg-black h-[65%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[70%]"></div>
+<div class="w-full bg-black h-[80%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[65%]"></div>
+<div class="w-full bg-black h-[72%]"></div>
+</div>
+<div class="w-full flex items-end gap-1">
+<div class="w-full bg-zinc-100 h-[90%]"></div>
+<div class="w-full bg-black h-[95%]"></div>
+</div>
+</div>
+<div class="mt-4 flex justify-between font-mono text-[0.6rem] text-zinc-400 uppercase tracking-widest px-4">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+<span>Week 5</span>
+<span>Week 6</span>
+<span>Week 7</span>
+</div>
+</section>
+<!-- Grading Queue -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-xl font-bold tracking-tight">Need Grading Queue</h2>
+<span class="font-mono text-[0.7rem] bg-zinc-100 px-2 py-0.5 uppercase">14 Pending</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Grading Card 1 -->
+<div class="bg-surface-container-lowest p-6 border border-transparent hover:shadow-xl transition-all group flex flex-col justify-between">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-zinc-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-bold text-sm">Elena Vance</p>
+<p class="text-[0.65rem] font-mono text-zinc-500 uppercase">Math Assignment 04</p>
+</div>
+</div>
+<span class="font-mono text-[0.65rem] text-zinc-400">12m ago</span>
+</div>
+<div class="relative aspect-video mb-6 bg-zinc-50 overflow-hidden">
+<img alt="Student Handwriting" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Top down close-up of a student's neat handwriting on white paper showing complex mathematical equations and ink sketches" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe7JXx-Egypjnog5JGMO_mR--1-W00gy0hFxJp9KwEiBkxfn9RpcpAx7VfPz1H2W7tieJHSp0n6caeXACsnry4m-ANPEGM4tEGEvkoVtbEEhS5A5kM0hRYjY_OmquK4xy0_bTl9hoSBCDWyaRhZQ6mJJSp1Gc_Z-SEh0DPBW120XKe6PT6EKsv7hZMhjxdqniHtKYTaAJsUMaAsqEHPMIDdIdjYaFsBvcI3soZbG9-10UeUO7bIKBwmGfVayLj0Ven1kgM1OBb1p_f"/>
+<div class="absolute inset-0 border border-zinc-200 pointer-events-none"></div>
+<div class="absolute bottom-2 left-2 bg-black/80 px-2 py-1 flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-[0.6rem]" data-icon="visibility" data-weight="fill">visibility</span>
+<span class="text-white font-mono text-[0.5rem] uppercase tracking-tighter">AI Pre-Scanned: 85% Match</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-black text-white text-[0.65rem] font-label uppercase font-bold tracking-widest">Review Now</button>
+<button class="w-12 h-10 border border-zinc-200 flex items-center justify-center hover:bg-zinc-50">
+<span class="material-symbols-outlined text-sm" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+<!-- Grading Card 2 -->
+<div class="bg-surface-container-lowest p-6 border border-transparent hover:shadow-xl transition-all group flex flex-col justify-between">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-zinc-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm" data-icon="person">person</span>
+</div>
+<div>
+<p class="font-bold text-sm">Marcus Thorne</p>
+<p class="text-[0.65rem] font-mono text-zinc-500 uppercase">History Thesis Draft</p>
+</div>
+</div>
+<span class="font-mono text-[0.65rem] text-zinc-400">45m ago</span>
+</div>
+<div class="relative aspect-video mb-6 bg-zinc-50 overflow-hidden">
+<img alt="Student Handwriting" class="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 transition-opacity" data-alt="Handwritten essay with margins containing red annotations, aesthetic ink on vintage style paper with dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI218JdWyDgmqnRkBRH14jXuIRNp2hBS5vDmHZjnJHBuo05VRdBWPO8X9eM9mmmuA37X3FYMVCTm9RXlp7nDea45NUNJlGcEUNBvUEafyv-IjGbvsMQSjZIijJUak74wDhVlE2FC4Fx2k0r32uOxB7oEtiaGkXXUXI74sGTCYmrSPYDwwEHl20LO6q6GFwSKcVWKx3FSQ624EYvSHO7oEX8bPn6R5nQ4OE-Z5OZz9TtwM3jxNTYYS_bBFEFVTGDZqerpxs_SPS79gi"/>
+<div class="absolute inset-0 border border-zinc-200 pointer-events-none"></div>
+<div class="absolute bottom-2 left-2 bg-black/80 px-2 py-1 flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-[0.6rem]" data-icon="warning" data-weight="fill">warning</span>
+<span class="text-white font-mono text-[0.5rem] uppercase tracking-tighter">AI Alert: Citation Needed</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-black text-white text-[0.65rem] font-label uppercase font-bold tracking-widest">Review Now</button>
+<button class="w-12 h-10 border border-zinc-200 flex items-center justify-center hover:bg-zinc-50">
+<span class="material-symbols-outlined text-sm" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-4 border border-dashed border-zinc-300 font-label text-[0.7rem] uppercase font-bold text-zinc-400 hover:bg-white transition-colors">
+                            View All Submissions (14)
+                        </button>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-black text-white shadow-2xl flex items-center justify-center group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="add_task">add_task</span>
+<div class="absolute right-16 px-4 py-2 bg-white border border-zinc-100 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+<span class="font-label text-[0.65rem] uppercase font-bold text-black whitespace-nowrap">Create New Assessment</span>
+</div>
+</button>
+</body></html>

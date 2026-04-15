@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PriEdu - Sophisticated Play</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#dad7ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "tertiary-fixed-dim": "#e2c62d",
+                    "surface-tint": "#4d44e3",
+                    "on-secondary-container": "#247155",
+                    "surface-bright": "#fcf8ff",
+                    "secondary-fixed": "#a6f2cf",
+                    "surface-container": "#f0ecf9",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-fixed": "#002115",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1b1b24",
+                    "secondary-fixed-dim": "#8bd6b4",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf8ff",
+                    "on-primary": "#ffffff",
+                    "background": "#fcf8ff",
+                    "tertiary-fixed": "#ffe24c",
+                    "surface-container-highest": "#e4e1ee",
+                    "inverse-primary": "#c3c0ff",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#464555",
+                    "inverse-on-surface": "#f3effc",
+                    "outline": "#777587",
+                    "surface-variant": "#e4e1ee",
+                    "surface-container-high": "#eae6f4",
+                    "on-primary-fixed": "#0f0069",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#3525cd",
+                    "surface-dim": "#dcd8e5",
+                    "on-tertiary-container": "#4a3f00",
+                    "surface-container-low": "#f5f2ff",
+                    "on-surface": "#1b1b24",
+                    "primary-container": "#4f46e5",
+                    "inverse-surface": "#302f39",
+                    "tertiary-container": "#c4aa01",
+                    "on-tertiary-fixed": "#211b00",
+                    "secondary-container": "#a6f2cf",
+                    "outline-variant": "#c7c4d8",
+                    "tertiary": "#6d5e00",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "secondary": "#1b6b4f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-3d-primary {
+            box-shadow: 0 4px 0 #3323cc;
+        }
+        .bg-3d-primary:active {
+            box-shadow: 0 0px 0 #3323cc;
+            transform: translateY(2px);
+        }
+        .bg-3d-tertiary {
+            box-shadow: 0 4px 0 #c4aa01;
+        }
+        .bg-3d-tertiary:active {
+            box-shadow: 0 0px 0 #c4aa01;
+            transform: translateY(2px);
+        }
+        .glass-ai {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(199, 196, 216, 0.2);
+        }
+        .stitch-card {
+            box-shadow: inset 0 1px 0 rgba(199, 196, 216, 0.2), inset 0 -1px 0 rgba(199, 196, 216, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface-variant min-h-screen pb-32">
+<!-- TopNavBar (Shared Component Execution) -->
+<header class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 bg-[#fcf8ff] dark:bg-slate-950">
+<div class="text-2xl font-black text-[#3525cd] tracking-tight font-['Plus_Jakarta_Sans']">PriEdu</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined p-2 text-[#464555] hover:scale-105 transition-transform duration-200">notifications</button>
+<button class="material-symbols-outlined p-2 text-[#464555] hover:scale-105 transition-transform duration-200">auto_awesome</button>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed border-2 border-white shadow-sm">
+<img alt="Student Avatar" data-alt="Close up portrait of a happy young Vietnamese primary school student smiling warmly, soft studio lighting, vibrant school setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8t9x-ZADKT8GqWfqXD3BkJBBSDcFnjhmS6Z9-eM-AcixTy5BAOSZecqKGlwsunkQfWuFr4ChuLPdNK4nsYXq8mTYMHgKxUQyVzsvNpBpLzs5JPgCZvJdP4pBP2pY3JSIZdGFaJ4iXCkNBeIh6-tCbyS2WDrjRgQxNys9MykSWgh4iQhC-dw45TvbXiZik3d-uQpxN7Yo89AaL_4p4jW43cbHg5oW_Jan1nVqZAHFQzIq-tazUYDCYeV36LWO0iJWnHwLbHIjTsfzy"/>
+</div>
+</div>
+</header>
+<main class="pt-20 px-6 space-y-8">
+<!-- Hero Section with AI Mascot Gia Sư -->
+<section class="relative mt-4">
+<div class="bg-primary-container rounded-lg p-6 flex items-center gap-4 overflow-hidden relative">
+<!-- Mascot Image -->
+<div class="w-24 h-24 relative z-10 drop-shadow-xl animate-bounce-slow">
+<img alt="AI Mascot Gia sư" data-alt="A friendly, high-tech white robot mascot with rounded glowing cyan eyes, expressive digital face, futuristic aesthetic for kids" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9x9aTQCANTLBvxbnnwunUrJ1H_xFpdFKlzR_ou1ImqHMfWS8YgNLh6_v8mwLu6bAg0FNuy7NfN8IbRXmH0RYJ3ctwdRYCdmB52VM5wE0WWktRsMaG9aJGiR3wUepNCN65Vwa2BQj2Oub0c6RoAgtMqlfJCwwCukvLHJA_dcIJFqDJUjUS1-Ao4WVtl8NN9OCpC-c4gpvI6Ko7bMotefGxbL-uJ_K36vgg9YX3J3ZWrOmdH49BMowMA8Wc31a-hJJut-qVdb2GO_RH"/>
+</div>
+<!-- Speech Bubble -->
+<div class="flex-1 relative z-10">
+<div class="bg-surface-bright/90 backdrop-blur-md p-4 rounded-2xl rounded-tl-none shadow-lg">
+<p class="font-headline font-bold text-on-primary-fixed leading-tight">Chào Nam! Hôm nay chúng mình học gì nhỉ?</p>
+<p class="text-xs text-on-primary-fixed-variant mt-1">Cấp độ 12 • 450 Kim cương</p>
+</div>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary opacity-20 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Learning Path (Adaptive Progress) -->
+<section class="space-y-3">
+<div class="flex justify-between items-end">
+<h2 class="font-headline text-headline-md font-bold text-on-surface">Lộ trình của bạn</h2>
+<span class="font-headline text-label-md font-bold text-primary">85% Hoàn thành</span>
+</div>
+<div class="h-8 w-full bg-surface-container-highest rounded-full p-1.5 shadow-inner">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-[85%] relative overflow-hidden">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+<div class="absolute right-2 top-1 w-3 h-3 bg-white rounded-full opacity-60"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline font-headline px-2">
+<span>MẦM NON</span>
+<span>TIỂU HỌC 1</span>
+<span class="text-primary">TIỂU HỌC 2</span>
+</div>
+</section>
+<!-- "Hôm nay có gì?" Section -->
+<section class="space-y-4">
+<h2 class="font-headline text-headline-md font-bold text-on-surface">Hôm nay có gì?</h2>
+<div class="grid grid-cols-1 gap-4">
+<!-- Task Card: Math -->
+<div class="bg-surface-container-lowest p-5 rounded-lg stitch-card flex flex-col gap-4 relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold font-headline">MÔN TOÁN</span>
+<h3 class="font-headline text-title-md font-bold text-on-surface">Phép cộng trong phạm vi 100</h3>
+<p class="text-sm text-on-surface-variant">15 bài tập • 10 phút</p>
+</div>
+<div class="w-16 h-16 flex items-center justify-center bg-secondary-fixed/30 rounded-xl">
+<span class="material-symbols-outlined text-secondary text-3xl">calculate</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-headline font-bold py-3 rounded-xl bg-3d-primary transition-all flex items-center justify-center gap-2">
+                        Start
+                        <span class="material-symbols-outlined text-lg">play_arrow</span>
+</button>
+</div>
+<!-- Task Card: Literature -->
+<div class="bg-surface-container-low p-5 rounded-lg stitch-card flex items-center gap-4 relative overflow-hidden">
+<div class="w-14 h-14 flex items-center justify-center bg-tertiary-fixed/40 rounded-xl">
+<span class="material-symbols-outlined text-tertiary text-2xl">menu_book</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline text-title-md font-bold text-on-surface">Thử thách Tiếng Việt</h3>
+<p class="text-xs text-on-surface-variant">Giải đố chữ cái cùng Gia sư AI</p>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant bg-surface-container-highest p-2 rounded-full hover:scale-110 transition-transform">chevron_right</button>
+</div>
+</div>
+</section>
+<!-- Gia sư AI Quick Chat Button -->
+<section class="pb-4">
+<button class="w-full bg-tertiary-container text-on-tertiary-container p-6 rounded-lg flex items-center justify-between group bg-3d-tertiary transition-all">
+<div class="flex items-center gap-4 text-left">
+<div class="w-12 h-12 glass-ai flex items-center justify-center rounded-full text-white">
+<span class="material-symbols-outlined text-2xl">smart_toy</span>
+</div>
+<div>
+<h3 class="font-headline font-extrabold text-lg leading-none">Hỏi Gia sư AI</h3>
+<p class="text-xs opacity-80 mt-1">Giải đáp mọi thắc mắc ngay bây giờ</p>
+</div>
+</div>
+<div class="w-10 h-10 bg-on-tertiary-container/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-container">forum</span>
+</div>
+</button>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component Execution) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 md:hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-[#c7c4d8]/20 shadow-[0_-4px_12px_rgba(53,37,205,0.06)] rounded-t-[20px]">
+<!-- Home Tab (Active) -->
+<a class="flex flex-col items-center justify-center bg-[#4f46e5] text-white rounded-full p-2 w-12 h-12 shadow-[0_4px_0_#3323cc] -translate-y-2 transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<!-- Tasks Tab -->
+<a class="flex flex-col items-center justify-center text-[#464555] dark:text-slate-400 p-2 hover:text-[#3525cd]" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] font-['Plus_Jakarta_Sans'] font-semibold">Tasks</span>
+</a>
+<!-- AI Chat Tab -->
+<a class="flex flex-col items-center justify-center text-[#464555] dark:text-slate-400 p-2 hover:text-[#3525cd]" href="#">
+<span class="material-symbols-outlined">forum</span>
+<span class="text-[10px] font-['Plus_Jakarta_Sans'] font-semibold">AI Chat</span>
+</a>
+<!-- Profile Tab -->
+<a class="flex flex-col items-center justify-center text-[#464555] dark:text-slate-400 p-2 hover:text-[#3525cd]" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-['Plus_Jakarta_Sans'] font-semibold">Profile</span>
+</a>
+</nav>
+</body></html>

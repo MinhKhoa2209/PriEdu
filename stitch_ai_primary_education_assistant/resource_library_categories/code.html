@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resource Library | Student Explorer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#247155",
+                        "primary-container": "#4f46e5",
+                        "inverse-primary": "#c3c0ff",
+                        "tertiary-fixed-dim": "#e2c62d",
+                        "tertiary": "#6d5e00",
+                        "on-surface": "#111c2d",
+                        "tertiary-container": "#c4aa01",
+                        "outline": "#777587",
+                        "surface-container-highest": "#d8e3fb",
+                        "outline-variant": "#c7c4d8",
+                        "secondary-container": "#a6f2cf",
+                        "surface": "#f9f9ff",
+                        "inverse-surface": "#263143",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#4a3f00",
+                        "on-tertiary-fixed": "#211b00",
+                        "on-tertiary-fixed-variant": "#524600",
+                        "surface-variant": "#d8e3fb",
+                        "on-secondary-fixed-variant": "#00513a",
+                        "primary-fixed": "#e2dfff",
+                        "on-secondary-fixed": "#002115",
+                        "on-background": "#111c2d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "surface-tint": "#4d44e3",
+                        "primary": "#3525cd",
+                        "on-surface-variant": "#464555",
+                        "on-primary-fixed": "#0f0069",
+                        "surface-container": "#e7eeff",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary": "#1b6b4f",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container-high": "#dee8ff",
+                        "secondary-fixed": "#a6f2cf",
+                        "tertiary-fixed": "#ffe24c",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-container": "#dad7ff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#cfdaf2",
+                        "secondary-fixed-dim": "#8bd6b4",
+                        "background": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.25rem",
+                        "2xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cloud-shadow {
+            box-shadow: 0 16px 32px -12px rgba(79, 70, 229, 0.08);
+        }
+        .gamified-button-primary {
+            box-shadow: 0 4px 0 0 #3525cd;
+        }
+        .gamified-button-secondary {
+            box-shadow: 0 4px 0 0 #1b6b4f;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 w-full max-w-full rounded-b-2xl shadow-[0_16px_32px_-12px_rgba(79,70,229,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-indigo-600 tracking-tighter">Student Explorer</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 hover:text-indigo-500 font-medium transition-all" href="#">My Classes</a>
+<a class="text-indigo-700 border-b-2 border-indigo-500 pb-1 font-bold" href="#">Lessons</a>
+<a class="text-slate-600 hover:text-indigo-500 font-medium transition-all" href="#">Achievements</a>
+<a class="text-slate-600 hover:text-indigo-500 font-medium transition-all" href="#">Games</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary px-6 py-2 rounded-full text-white font-bold text-sm flex items-center gap-2 gamified-button-primary hover:translate-y-[2px] hover:shadow-[0_2px_0_0_#3525cd] active:translate-y-[4px] active:shadow-none transition-all duration-150">
+<span class="material-symbols-outlined text-sm">psychology</span>
+                Ask AI
+            </button>
+<div class="flex items-center gap-3 ml-4">
+<button class="p-2 text-slate-500 hover:text-indigo-600"><span class="material-symbols-outlined">notifications</span></button>
+<img alt="Student Avatar" class="w-10 h-10 rounded-full border-2 border-primary-container" data-alt="close up portrait of a young student smiling in a library setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6KREbB-VMvy7ZdH_QWRRTVj9nY_jL7S1EC1Kjq39N5IiPRikDBlnTzLTeVjmQlTtcK2E_6Xf1HuBYsagbQK_XCNRMi1tgj5WtSUP_ay3m32z7MSHlX_PdBUiEDyxTFwFeVijA88zs4p2fj6TznyO0rEvwcswhEk_zmvoeFnfhEJL2EEWM_2GKxsB6FHf4juB1rvQSw3-MWjMHiuikgkIuUxhBwPQtpm8jB0XjaIBkeBieax96rqiaF1mzKFDZpLm5QjVEfQdVR4lw"/>
+</div>
+</div>
+</nav>
+<div class="pt-24 px-8 pb-12 flex gap-8">
+<!-- Category Sidebar (Sidebar Filter) -->
+<aside class="w-72 flex-shrink-0">
+<div class="sticky top-24 bg-surface-container-low rounded-2xl p-6 space-y-8">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Subjects</h3>
+<div class="space-y-2">
+<button class="w-full flex items-center justify-between p-3 rounded-xl bg-primary-container text-white font-bold transition-all">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">calculate</span>
+                                Math
+                            </span>
+<span class="text-xs bg-indigo-400 px-2 py-0.5 rounded-full">12</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-xl text-on-surface-variant hover:bg-white transition-all">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">science</span>
+                                Science
+                            </span>
+<span class="text-xs text-slate-400 font-medium">08</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-xl text-on-surface-variant hover:bg-white transition-all">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">menu_book</span>
+                                English
+                            </span>
+<span class="text-xs text-slate-400 font-medium">15</span>
+</button>
+<button class="w-full flex items-center justify-between p-3 rounded-xl text-on-surface-variant hover:bg-white transition-all">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">history_edu</span>
+                                History
+                            </span>
+<span class="text-xs text-slate-400 font-medium">05</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Level</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-indigo-600 border-2 border-indigo-100">Grade 5</span>
+<span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-slate-400 hover:border-indigo-100 border-2 border-transparent cursor-pointer">Grade 6</span>
+<span class="px-3 py-1 bg-white rounded-full text-xs font-bold text-slate-400 hover:border-indigo-100 border-2 border-transparent cursor-pointer">Grade 7</span>
+</div>
+</div>
+<div class="bg-secondary-container/20 p-4 rounded-xl">
+<h4 class="text-sm font-bold text-secondary mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                        AI Recommended
+                    </h4>
+<p class="text-xs text-on-secondary-container leading-relaxed">Based on your recent algebra score, we suggest "Quadratic Mysteries."</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-extrabold tracking-tight text-primary mb-4">Resource Library</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl">Dive into a universe of AI-curated lessons designed to make your learning journey tactile, playful, and deeply engaging.</p>
+</header>
+<!-- Learning Track Grid (Asymmetric Bento Style) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Large Featured Card -->
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-2xl cloud-shadow relative overflow-hidden flex flex-col justify-between h-96 group">
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent pointer-events-none"></div>
+<div class="z-10">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-black uppercase tracking-widest rounded-full">New Content</span>
+<h2 class="text-3xl font-bold text-on-surface mt-4 mb-2">The Quantum Adventure</h2>
+<p class="text-on-surface-variant text-lg max-w-md">Master subatomic particles through an interactive RPG-style lesson plan.</p>
+</div>
+<div class="z-10 flex items-center gap-4">
+<button class="bg-primary text-white font-bold px-8 py-3 rounded-xl gamified-button-primary">Start Lesson</button>
+<div class="flex -space-x-2">
+<img alt="Student 1" class="w-8 h-8 rounded-full border-2 border-white" data-alt="portrait of a laughing girl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClR8vO5gRhNcRgA8vHXRMwMW0cwP6PO_42wXXC6NRW_2aftPK47WT4e9QvLgM9fCs_y73TK-iToeXdc9le01-sTdybgSNG7JGmZyVBwYqrL2ufcnhMGBf5lMGeJnI2RVrmrFT_AAw5_2mt6Dt2isP8fl7mWgWVGNUw5iVSF65LXIyKROQ0ngsTIWDhXpHyH9mPiJR4_WcRDpaklq_3hbsYAR1mYU5cuVptVrTfR12SCS2uJzSW3Gl-QtSU07lg2FHG6bGklMb-zs7c"/>
+<img alt="Student 2" class="w-8 h-8 rounded-full border-2 border-white" data-alt="headshot of a smiling boy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkRTAmJvowaC14xt4_0VS_fXUT66MkDg33CobfLwDmRlJJ_UrdyYtTKzr7xh-ziFOMV87TGJr3LdIWdHD8CzH8JJbvq2WaN_nXzQu7Sy4kKn4oFgMWRvAG-UIgU0NZTZPOjWZm3B-HLJcrJIeRIsaSWnjyKS5qV-jwZ476NaVW8BfdBDzBY3m_gLCwvZQ3xURReQbCIxATyqjsuWAoAuRIMyLj1Y34mBs4GDuR58c2tYEj_snCMHPxNBuGSlfaWdzbicgcz0hephMa"/>
+<div class="w-8 h-8 rounded-full bg-slate-100 border-2 border-white flex items-center justify-center text-[10px] font-bold">+12</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-full opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[200px] absolute -right-10 -bottom-10" style="font-variation-settings: 'FILL' 1;">science</span>
+</div>
+</div>
+<!-- Secondary Small Card -->
+<div class="col-span-4 bg-secondary-container p-6 rounded-2xl flex flex-col justify-between group cursor-pointer">
+<div>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4">rocket_launch</span>
+<h3 class="text-xl font-bold text-on-secondary-container leading-tight">Career Paths: Rocket Engineer</h3>
+</div>
+<div class="text-xs font-bold text-secondary uppercase tracking-widest group-hover:translate-x-2 transition-transform flex items-center gap-2">
+                        Explore <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Staircase List Layout for "Quick Lessons" -->
+<div class="col-span-12 mt-8">
+<h3 class="text-xl font-extrabold text-on-surface-variant mb-6 flex items-center gap-3">
+<span class="w-8 h-1 bg-indigo-500 rounded-full"></span>
+                        Recommended for Grade 5
+                    </h3>
+<div class="space-y-4">
+<!-- Staircase Item 1 -->
+<div class="flex items-center gap-6 p-4 bg-white rounded-2xl cloud-shadow hover:scale-[1.01] transition-all transform ml-0">
+<div class="w-16 h-16 rounded-xl bg-indigo-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-indigo-600 text-3xl">functions</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold">Algebraic Storytelling</h4>
+<p class="text-sm text-slate-500">Learn variables through epic adventure narratives.</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-xs font-bold text-slate-400 uppercase">Duration</span>
+<span class="text-sm font-bold text-on-surface">15 Mins</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-indigo-600 flex items-center justify-center hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Staircase Item 2 (Offset) -->
+<div class="flex items-center gap-6 p-4 bg-white rounded-2xl cloud-shadow hover:scale-[1.01] transition-all transform ml-4">
+<div class="w-16 h-16 rounded-xl bg-emerald-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-3xl">eco</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold text-on-surface">The Photosynthesis VR</h4>
+<p class="text-sm text-slate-500">Shrink down and explore the inside of a leaf.</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-xs font-bold text-slate-400 uppercase">Duration</span>
+<span class="text-sm font-bold text-on-surface">25 Mins</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-indigo-600 flex items-center justify-center hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Staircase Item 3 (Offset) -->
+<div class="flex items-center gap-6 p-4 bg-white rounded-2xl cloud-shadow hover:scale-[1.01] transition-all transform ml-8">
+<div class="w-16 h-16 rounded-xl bg-amber-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-3xl">history</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-lg font-bold text-on-surface">Ancient Roman Chat</h4>
+<p class="text-sm text-slate-500">Interview an AI Caesar about life in the Forum.</p>
+</div>
+<div class="flex items-center gap-8">
+<div class="text-right">
+<span class="block text-xs font-bold text-slate-400 uppercase">Duration</span>
+<span class="text-sm font-bold text-on-surface">20 Mins</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-indigo-600 flex items-center justify-center hover:bg-primary-container hover:text-white transition-colors">
+<span class="material-symbols-outlined">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Subjects Highlight Grid -->
+<div class="col-span-12 mt-12 grid grid-cols-3 gap-6">
+<div class="bg-indigo-600 rounded-2xl p-6 text-white h-48 relative overflow-hidden group hover:-translate-y-2 transition-all">
+<h4 class="text-xl font-bold mb-2">Math Olympics</h4>
+<p class="text-indigo-100 text-sm">Compete in mental math challenges globally.</p>
+<span class="material-symbols-outlined text-8xl absolute -right-4 -bottom-4 opacity-20 rotate-12 group-hover:rotate-0 transition-transform">percent</span>
+</div>
+<div class="bg-tertiary-container rounded-2xl p-6 text-on-tertiary-container h-48 relative overflow-hidden group hover:-translate-y-2 transition-all">
+<h4 class="text-xl font-bold mb-2">Lab Simulator</h4>
+<p class="text-on-tertiary-fixed-variant text-sm">Conduct experiments without the mess.</p>
+<span class="material-symbols-outlined text-8xl absolute -right-4 -bottom-4 opacity-20 rotate-12 group-hover:rotate-0 transition-transform">biotech</span>
+</div>
+<div class="bg-secondary rounded-2xl p-6 text-white h-48 relative overflow-hidden group hover:-translate-y-2 transition-all">
+<h4 class="text-xl font-bold mb-2">Word Quest</h4>
+<p class="text-secondary-fixed-dim text-sm">Vocabulary games in enchanted forests.</p>
+<span class="material-symbols-outlined text-8xl absolute -right-4 -bottom-4 opacity-20 rotate-12 group-hover:rotate-0 transition-transform">font_download</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button (Only on main dashboard/explorer screens) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container rounded-full text-white cloud-shadow flex items-center justify-center gamified-button-primary z-50 hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

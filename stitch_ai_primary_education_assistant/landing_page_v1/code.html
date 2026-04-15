@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PriEdu - The Digital Mentor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#e2c62d",
+                    "surface-dim": "#cfdaf2",
+                    "on-primary-fixed": "#0f0069",
+                    "secondary-fixed-dim": "#8bd6b4",
+                    "surface-variant": "#d8e3fb",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "primary-container": "#4f46e5",
+                    "on-secondary-container": "#247155",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#464555",
+                    "on-tertiary-fixed": "#211b00",
+                    "secondary-container": "#a6f2cf",
+                    "inverse-surface": "#263143",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "tertiary-fixed": "#ffe24c",
+                    "background": "#f9f9ff",
+                    "on-tertiary-container": "#4a3f00",
+                    "on-surface": "#111c2d",
+                    "outline-variant": "#c7c4d8",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "on-primary-container": "#dad7ff",
+                    "surface-container": "#e7eeff",
+                    "inverse-on-surface": "#ecf1ff",
+                    "primary": "#3525cd",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "on-background": "#111c2d",
+                    "tertiary-container": "#c4aa01",
+                    "surface-bright": "#f9f9ff",
+                    "surface-container-high": "#dee8ff",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#d8e3fb",
+                    "surface": "#f9f9ff",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#a6f2cf",
+                    "outline": "#777587",
+                    "inverse-primary": "#c3c0ff",
+                    "error": "#ba1a1a",
+                    "tertiary": "#6d5e00",
+                    "surface-container-low": "#f0f3ff",
+                    "secondary": "#1b6b4f",
+                    "primary-fixed": "#e2dfff",
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#002115",
+                    "surface-tint": "#4d44e3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-premium {
+            text-shadow: 0 4px 12px rgba(79,70,229,0.1);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar (Suppressed due to landing page focus, using custom simple header) -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm">
+<div class="flex items-center gap-2">
+<span class="text-xl font-black text-indigo-700 dark:text-indigo-300">PriEdu</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-indigo-600 font-bold font-plus-jakarta text-base" href="#">Dashboard</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-all font-plus-jakarta text-base" href="#">Features</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-all font-plus-jakarta text-base" href="#">Testimonials</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-indigo-600">language</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold shadow-[0_4px_0_0_#3525cd] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none transition-all">
+                Login
+            </button>
+</div>
+</header>
+<main>
+<!-- Hero Section: Teacher Focus -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center overflow-hidden px-6 pt-20 pb-32">
+<div class="absolute inset-0 bg-gradient-to-br from-surface to-surface-container-low -z-10"></div>
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold tracking-widest uppercase">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+                        AI-Powered Efficiency
+                    </div>
+<h1 class="text-6xl md:text-7xl font-extrabold tracking-tight text-on-surface leading-[1.1]">
+                        Grading that feels <span class="text-primary italic">magic.</span>
+</h1>
+<p class="text-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        Say goodbye to manual marking. Our AI-powered OCR technology reads handwriting, grades assignments, and provides instant feedback for your students.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg shadow-[0_4px_0_0_#3525cd] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none transition-all flex items-center gap-2">
+                            Teacher Portal <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-lowest text-primary px-8 py-4 rounded-lg font-bold text-lg border-2 border-primary-container/20 hover:bg-primary-container/5 transition-all">
+                            How it works
+                        </button>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-32 h-32 bg-tertiary-fixed rounded-full blur-3xl opacity-40"></div>
+<div class="absolute -bottom-10 -right-10 w-48 h-48 bg-primary-container rounded-full blur-3xl opacity-20"></div>
+<div class="relative bg-surface-container-lowest p-4 rounded-xl shadow-[0_32px_64px_-16px_rgba(79,70,229,0.15)] rotate-2 border border-outline-variant/10">
+<img alt="Professional teacher using a tablet" class="rounded-lg w-full aspect-[4/3] object-cover" data-alt="Professional teacher in a modern classroom smiling while using a digital tablet for assessment, warm natural lighting, educational setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2OUr3ROrveZAj9c4GOkVRsdXNILzgvhRtxA-nC7Vgrp4GoMACUHb-Jhbo3ovLl__G-0blgTx-1JAy3EA033vsfawIA963Q89xMryVYCacA-yRCfVuOZUSRFc1LYODI2Na4KiZxSqTKkN1A4Eth-MTU6hcIxvrkC-rI7IUoZ-Rk5Sqw7-vOcB2ApfJsY144XTVEQX-GxkW0mgzLgcH_650pZPiXzLUC3Vyf2wDPqxzb_GOYT0_wXu13CC4PjkvDTrp5NEypsFpTAh8"/>
+<div class="absolute -bottom-6 -left-6 glass-card p-6 rounded-xl shadow-xl max-w-[240px] -rotate-3">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-bold text-sm">OCR Accuracy 99.8%</span>
+</div>
+<p class="text-xs text-on-surface-variant">PriEdu identified handwriting from 30 separate student sheets in 4.2 seconds.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Section: Features -->
+<section class="py-24 px-6 bg-surface-container">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16 text-center">
+<h2 class="text-4xl font-bold mb-4">Empowering the Classroom</h2>
+<p class="text-on-surface-variant">The tools you need to foster growth and creativity.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Feature -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl shadow-sm flex flex-col justify-between overflow-hidden relative group">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">psychology</span>
+<h3 class="text-2xl font-bold mb-2">AI Tutoring</h3>
+<p class="text-on-surface-variant max-w-md">Every student gets a personal mentor that understands their pace and learning style.</p>
+</div>
+<div class="mt-8 relative z-10">
+<div class="flex -space-x-2">
+<div class="w-10 h-10 rounded-full border-2 border-white bg-indigo-200"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-indigo-300"></div>
+<div class="w-10 h-10 rounded-full border-2 border-white bg-indigo-400"></div>
+</div>
+<p class="text-xs mt-2 font-medium">+2,400 students active now</p>
+</div>
+<div class="absolute right-0 bottom-0 w-1/2 h-full opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-[200px] absolute -bottom-10 -right-10">smart_toy</span>
+</div>
+</div>
+<!-- Small Feature -->
+<div class="bg-primary-container p-8 rounded-xl shadow-sm text-on-primary-container flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-5xl mb-4">speed</span>
+<h3 class="text-xl font-bold mb-2">Instant Grading</h3>
+<p class="text-sm opacity-80">Scan a stack of 30 papers and have them graded before your coffee gets cold.</p>
+</div>
+<!-- Staircase Content (Learning Track) -->
+<div class="md:col-span-3 grid md:grid-cols-4 gap-4 pt-8">
+<div class="bg-white p-6 rounded-xl shadow-sm transform md:translate-y-0">
+<span class="text-primary font-black text-3xl mb-2 block">01</span>
+<h4 class="font-bold">Scan</h4>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm transform md:translate-y-4">
+<span class="text-primary font-black text-3xl mb-2 block">02</span>
+<h4 class="font-bold">Review</h4>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm transform md:translate-y-8">
+<span class="text-primary font-black text-3xl mb-2 block">03</span>
+<h4 class="font-bold">Feedback</h4>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm transform md:translate-y-12">
+<span class="text-primary font-black text-3xl mb-2 block">04</span>
+<h4 class="font-bold">Insight</h4>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vibrant Playground Section: Student Focus -->
+<section class="py-32 px-6 overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="order-2 lg:order-1 relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4">
+<img alt="Child playing with digital blocks" class="rounded-xl w-full h-64 object-cover shadow-lg" data-alt="Happy young child playing with colorful digital learning blocks on a tablet, bright and playful atmosphere, high key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS7ACgjD60fPS42mItVnODFXOQ2gBSMlG2tGUtl9ijvgEEG8QbDwll7BO7fqBu1zAzGU_nrNJ8lgZnytkgDMNc7jXsoivUPz5U7GVFv7k6-hf3nIgDaTXZSDT6OhSelUqlp-z4rFwCH65P175pDbtl7qtwTuxsUs-nFYWmRPfAPHiCS7Cw9SLzjF1YzGrc8WKIeapYYhwqg7C4fgZ6f54S37kVrNIXOwbA0Z5sVKaK3l2WUw0h8T1n3Uut9UrRJyj3m2EoE6AsuPHK"/>
+<div class="bg-secondary-container p-6 rounded-xl">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">videogame_asset</span>
+<h4 class="font-bold text-lg mt-2">Level Up!</h4>
+<p class="text-xs text-on-secondary-container">Earn badges as you master new skills in Math and Science.</p>
+</div>
+</div>
+<div class="space-y-4 pt-12">
+<div class="bg-tertiary-fixed p-6 rounded-xl">
+<span class="material-symbols-outlined text-on-tertiary-fixed" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<h4 class="font-bold text-lg mt-2">Explore</h4>
+<p class="text-xs text-on-tertiary-fixed-variant">Journey through history and space with AI guides.</p>
+</div>
+<img alt="Group of diverse kids learning" class="rounded-xl w-full h-64 object-cover shadow-lg" data-alt="Group of diverse children laughing and learning together in a creative space, vibrant colors, shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrrnTMWS453o4BXONf8TH33-ftPZCDmb9df3Ofu1UDqHindBTXFGXBGIiDFTSQEAOIXncfmLy5MVnfox6wN28Et6qaAtwv0_6r-ENqXR_4nB0xZCkomPNp5aTrKVPQ1q3ZRJaSUWblOif8xqFYDFbmdKBaF7z_Cr6tKducRUx-Z2spEUNoo3wVq4kxDrYEFDD-hIQnuRWVAaExqwwNU-BZaaYVBtEPp7qWq6m4uKd5krcxYxVBO89Ob7PFSHdQe-igvuAhc9pCt26g"/>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-fixed text-on-primary-fixed-variant rounded-full text-xs font-bold tracking-widest uppercase">
+                        The Playground
+                    </div>
+<h2 class="text-5xl md:text-6xl font-extrabold tracking-tight">Learning is a <br/><span class="text-secondary">Grand Adventure.</span></h2>
+<p class="text-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        PriEdu isn't just for homework—it's a world of discovery. Complete quests, earn rewards, and challenge your friends in a safe, AI-guided environment designed for fun.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-lg font-bold text-lg shadow-[0_4px_0_0_#1b6b4f] hover:translate-y-[2px] active:translate-y-[4px] active:shadow-none transition-all flex items-center gap-2">
+                            Student Start <span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-5xl mx-auto bg-primary rounded-3xl p-12 md:p-20 text-center text-on-primary relative overflow-hidden shadow-2xl">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-white rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-300 rounded-full blur-[100px]"></div>
+</div>
+<h2 class="text-4xl md:text-5xl font-black mb-6 relative z-10">Ready to transform your classroom?</h2>
+<p class="text-on-primary-container text-lg mb-10 max-w-2xl mx-auto relative z-10">Join thousands of educators and students who are already shaping the future of education with PriEdu.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-white text-primary px-10 py-5 rounded-xl font-black text-xl shadow-[0_6px_0_0_#cbd5e1] hover:translate-y-[2px] active:translate-y-[6px] active:shadow-none transition-all">
+                        Get Started Free
+                    </button>
+<button class="bg-primary-container text-on-primary-container px-10 py-5 rounded-xl font-black text-xl border-2 border-white/20 hover:bg-white/10 transition-all">
+                        Schedule a Demo
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low py-16 px-6">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<span class="text-2xl font-black text-indigo-700 mb-4 block">PriEdu</span>
+<p class="text-on-surface-variant text-sm">The Digital Mentor. Bridging the gap between manual excellence and AI efficiency for the next generation of leaders.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest">Product</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">AI Tutor</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">OCR Grading</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Safety Console</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest">Company</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Curriculum</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest">Support</h5>
+<ul class="space-y-2 text-on-surface-variant text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant/10 text-center text-xs text-on-surface-variant/60">
+            © 2024 PriEdu Education Systems. All rights reserved.
+        </div>
+</footer>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white shadow-[0_-4px_20px_rgba(79,70,229,0.1)] rounded-t-2xl">
+<a class="flex flex-col items-center justify-center bg-indigo-100 text-indigo-700 rounded-xl px-3 py-1 -translate-y-1 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Learn</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Tutor</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Tests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400" href="#">
+<span class="material-symbols-outlined">settings_accessibility</span>
+<span class="text-[10px] uppercase tracking-wider font-bold">Settings</span>
+</a>
+</nav>
+</body></html>

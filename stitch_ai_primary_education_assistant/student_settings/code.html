@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Settings | PriEdu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#a6f2cf",
+                    "on-surface-variant": "#464555",
+                    "surface": "#f9f9ff",
+                    "inverse-surface": "#263143",
+                    "primary-container": "#4f46e5",
+                    "error-container": "#ffdad6",
+                    "surface-container": "#e7eeff",
+                    "on-secondary-fixed": "#002115",
+                    "tertiary-container": "#c4aa01",
+                    "on-background": "#111c2d",
+                    "primary": "#3525cd",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "primary-fixed": "#e2dfff",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#4a3f00",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#8bd6b4",
+                    "inverse-primary": "#c3c0ff",
+                    "surface-bright": "#f9f9ff",
+                    "on-tertiary-fixed": "#211b00",
+                    "secondary": "#1b6b4f",
+                    "surface-container-highest": "#d8e3fb",
+                    "tertiary": "#6d5e00",
+                    "surface-container-high": "#dee8ff",
+                    "surface-tint": "#4d44e3",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "tertiary-fixed": "#ffe24c",
+                    "surface-variant": "#d8e3fb",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#e2c62d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "outline": "#777587",
+                    "background": "#f9f9ff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f0f3ff",
+                    "on-primary-container": "#dad7ff",
+                    "on-secondary-container": "#247155",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "inverse-on-surface": "#ecf1ff",
+                    "outline-variant": "#c7c4d8",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#a6f2cf",
+                    "surface-dim": "#cfdaf2",
+                    "on-surface": "#111c2d",
+                    "on-primary-fixed": "#0f0069"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tab {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#f0f3ff] dark:bg-slate-900 flex flex-col py-6 px-4 z-40 shadow-[16px_0_32px_-16px_rgba(79,70,229,0.06)] border-none">
+<div class="mb-10 px-4">
+<span class="text-2xl font-bold tracking-tighter text-[#4f46e5] dark:text-indigo-300">PriEdu</span>
+<p class="text-xs text-on-surface-variant font-medium mt-1 uppercase tracking-wider">The Digital Mentor</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-[#464555] dark:text-slate-400 rounded-xl px-4 py-3 flex items-center gap-3 hover:bg-white/50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Dashboard</span>
+</a>
+<a class="text-[#464555] dark:text-slate-400 rounded-xl px-4 py-3 flex items-center gap-3 hover:bg-white/50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Classroom</span>
+</a>
+<a class="text-[#464555] dark:text-slate-400 rounded-xl px-4 py-3 flex items-center gap-3 hover:bg-white/50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Assignments</span>
+</a>
+<a class="text-[#464555] dark:text-slate-400 rounded-xl px-4 py-3 flex items-center gap-3 hover:bg-white/50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined">library_books</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Resources</span>
+</a>
+<a class="bg-[#4f46e5] text-white rounded-xl px-4 py-3 flex items-center gap-3 shadow-[0_4px_0_0_#3525cd] transition-all duration-200 translate-y-[-2px]" href="#">
+<span class="material-symbols-outlined active-tab">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-4 bg-surface-container rounded-2xl flex flex-col gap-3">
+<div class="flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full bg-white p-1" data-alt="close-up profile avatar of a friendly stylized student character with bright colors and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJQMrPfPqQFdgdswMJ76brCni9QcUneg4FgFu3bc-6Ph1SrSo85mwn2U4zca55y49IuPn3KED_kGcs4tVZClBeeJxwElwdo9uXTCfTT4XZQ37Vx2bxHR8AJD1TsOqQQCEnNO_TKoflKCV6T23gkBsPluIxS_lNUVRT8pi-xEajtAZnvL9hSblaIcE_B2nDbxJp_8RHSSJAydJ63wwAvob79tIVx2j1uahIVT5h-DHLI9C2yRpzbY9YmxQfPdXo4huApIZk4x2opQda"/>
+<div>
+<p class="text-xs font-bold">Leo's Account</p>
+<p class="text-[10px] text-on-surface-variant">Year 5 Student</p>
+</div>
+</div>
+<button class="w-full py-2 bg-white text-primary text-xs font-bold rounded-lg shadow-sm hover:scale-95 transition-transform">Switch Persona</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar Anchor -->
+<header class="w-full sticky top-0 z-30 bg-[#f9f9ff]/80 dark:bg-slate-950/80 backdrop-blur-xl h-16 px-8 flex justify-between items-center shadow-sm">
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#4f46e5]">Student Settings</h1>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex bg-surface-container-high rounded-full px-4 py-1.5 items-center gap-2">
+<span class="material-symbols-outlined text-sm">search</span>
+<input class="bg-transparent border-none text-xs focus:ring-0 w-48" placeholder="Search settings..." type="text"/>
+</div>
+<div class="flex items-center gap-1">
+<button class="hover:bg-[#f0f3ff] dark:hover:bg-slate-800 rounded-full p-2 transition-all active:scale-90">
+<span class="material-symbols-outlined text-[#464555]">notifications</span>
+</button>
+<button class="hover:bg-[#f0f3ff] dark:hover:bg-slate-800 rounded-full p-2 transition-all active:scale-90">
+<span class="material-symbols-outlined text-[#464555]">help_outline</span>
+</button>
+<button class="hover:bg-[#f0f3ff] dark:hover:bg-slate-800 rounded-full p-2 transition-all active:scale-90">
+<span class="material-symbols-outlined text-[#464555]">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<div class="p-8 max-w-6xl mx-auto space-y-8">
+<!-- Hero Header -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-primary-container p-8 text-white">
+<div class="relative z-10">
+<h2 class="text-4xl font-extrabold tracking-tight mb-2 -ml-1">Personalize Your Journey</h2>
+<p class="text-primary-fixed opacity-90 max-w-md">Make PriEdu your own by picking your favorite avatar, AI teacher's personality, and more!</p>
+</div>
+<div class="absolute -right-8 -bottom-8 opacity-20 transform rotate-12">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Avatar Selection Card (Bento Style) -->
+<section class="md:col-span-2 bg-surface-container-lowest rounded-2xl p-6 shadow-[0_4px_32px_-16px_rgba(79,70,229,0.1)] flex flex-col">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h3 class="text-xl font-bold">Pick Your Profile Buddy</h3>
+<p class="text-sm text-on-surface-variant">Choose an animal friend to represent you!</p>
+</div>
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-xl">face</span>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-5 gap-4">
+<button class="group relative flex flex-col items-center gap-2 p-3 rounded-2xl bg-surface-container-low border-2 border-primary transition-all scale-105">
+<img alt="Fox" class="w-16 h-16" data-alt="cute cartoon fox character with bright orange fur and friendly expression, minimalist flat vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZA62AFEyjtUagdZIMOhTcdElWgnNjF_6Y0or6sRtCnGY2Dr_VJcgD1TIG0y--PgFePgMNPYzAUp1ZFb7RhuDpZbbtTb26mSfeQnPeCfP6B2y1OA1de4xu62HlQFpX7uBAKpvbejwVf4p5o6PEoNRT0SGIjBbBGcfRRuSUB5mnYgIecENSxXylR5OX-sOO2lGZ371h_Ya7Eik-IQuhcDqA6CceuPGr8xH9RugOCBE_XBgiwJPcMV7j552peSNDcdluSqdYq4ZzuGEX"/>
+<span class="text-xs font-bold uppercase tracking-wider">Finn</span>
+<div class="absolute -top-2 -right-2 bg-primary text-white p-1 rounded-full text-[10px]">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</button>
+<button class="group flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container transition-all hover:scale-105 active:scale-95">
+<img alt="Panda" class="w-16 h-16" data-alt="chubby cute panda bear illustration with round features and soft textures, vibrant digital art style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxUy6sAvMOaEer0W77INC6bPY2EvWRrfZ2U5MiH7VM6S9fxfz1y1iOPxZQEgzKiuR2-P4oa-3LcyfgvMZ8GAnpN16ugcRDTbvKAuNVNRDJ4kLrxotyXovMQVWJSYthCnhINuik6Keew85WEA0By_6GiaVF5SdwTYXQ2UZobo19L5NAr7XPWh4f-6jqo8wKSapVIEk5bEVcpKMZ1K_NTWuZJv6iRv9xJAItQ3k-0g3nipWIXI0T6CRhVmlyi5xuLZQmRWfBi8AkvrIA"/>
+<span class="text-xs font-bold text-on-surface-variant">Pip</span>
+</button>
+<button class="group flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container transition-all hover:scale-105 active:scale-95">
+<img alt="Lion" class="w-16 h-16" data-alt="brave cartoon lion cub with a fluffy mane and happy eyes, playful kid-friendly aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9USKd0lYuJYlDFHQmosd7Ot0Q4zQY3MCJvZU1CU84F5nSe9y2_SBS0laS08dreA6G_HqCwYlQnxh_S3Btvhl8sa_KGVpS5ASc3RPCtX7cO4veG216j0Noi7KfDEHcj6QGtcbJC_I0RxssxFaQjaZiC1vMR_g3pfxw_RTO5lnKe_1g85OXSIKCMwl2b6k9LfVxoBn0HnU6XzXK3zt2mOhP4h94H-VaiS0pTSGPFiP70EOc9B8RJZS-RdEDuYV-WJVbu7NZNUSjvpfj"/>
+<span class="text-xs font-bold text-on-surface-variant">Leo</span>
+</button>
+<button class="group flex flex-col items-center gap-2 p-3 rounded-2xl hover:bg-surface-container transition-all hover:scale-105 active:scale-95">
+<img alt="Owl" class="w-16 h-16" data-alt="wise little owl with big glasses and colorful feathers, educational mascot style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ0j75xchJNGg03BLqBvlgJ94FAoZN5LpM-KroKR0_1_FUDE4BRMfJ1mSiT1qhHT3BhhkD6sJemNAa-g3AcyzNmjs8UDzXYnq5sQm_P7idfOQaM-coMuYX3ylEQ5OXNXEMWd_Pr63JkRDbeUQ0UWjJ38mVTHW1jNJqurOqdpwBKd6tPoqx3H2uLAtxA0KKcoVbBUIMUhnpFNbVCGIwJXbLVj_ijLqCY6PRcBmKgA9ClhNS_3HLy0LzYPGjfVcIQmWdS6vo6RKBmXJ2"/>
+<span class="text-xs font-bold text-on-surface-variant">Ollie</span>
+</button>
+<button class="group flex flex-col items-center gap-2 p-3 rounded-2xl bg-surface-container-high/50 opacity-50 cursor-not-allowed">
+<div class="w-16 h-16 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">lock</span>
+</div>
+<span class="text-[10px] font-bold text-primary">Unlock at Lvl 5</span>
+</button>
+</div>
+</section>
+<!-- AI Tutor Personality -->
+<section class="bg-surface-container-lowest rounded-2xl p-6 shadow-[0_4px_32px_-16px_rgba(79,70,229,0.1)]">
+<h3 class="text-xl font-bold mb-1">AI Tutor Style</h3>
+<p class="text-sm text-on-surface-variant mb-6">Choose how your mentor speaks!</p>
+<div class="space-y-3">
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-secondary-container/30 border-2 border-secondary transition-all">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">mood</span>
+<div class="text-left">
+<p class="text-sm font-bold">Friendly</p>
+<p class="text-[10px] text-on-secondary-container">Encouraging and kind</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all hover:scale-[1.02] active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">psychology</span>
+<div class="text-left">
+<p class="text-sm font-bold">Brainy</p>
+<p class="text-[10px] text-on-surface-variant">Detailed and logical</p>
+</div>
+</button>
+<button class="w-full flex items-center gap-4 p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all hover:scale-[1.02] active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">celebration</span>
+<div class="text-left">
+<p class="text-sm font-bold">Funny</p>
+<p class="text-[10px] text-on-surface-variant">Full of jokes and fun</p>
+</div>
+</button>
+</div>
+</section>
+<!-- Display & Language -->
+<section class="bg-surface-container-lowest rounded-2xl p-6 shadow-[0_4px_32px_-16px_rgba(79,70,229,0.1)]">
+<h3 class="text-xl font-bold mb-4">View Settings</h3>
+<div class="space-y-6">
+<!-- Theme Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">dark_mode</span>
+<span class="text-sm font-semibold">Dark Mode</span>
+</div>
+<button class="w-12 h-6 bg-outline-variant/30 rounded-full relative transition-colors">
+<div class="absolute left-1 top-1 w-4 h-4 bg-white rounded-full transition-transform"></div>
+</button>
+</div>
+<!-- Language Selector -->
+<div class="space-y-2">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Language</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded-lg bg-primary-fixed text-primary text-xs font-bold flex items-center justify-center gap-2">
+<img alt="EN" data-alt="minimalist icon of the United Kingdom flag circle shape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEM2fcJgpix_5y0vSkGWPkn3g1A-CjhBUpo8BpgwujuwjOBNOyJQ4DW5eM5CLTPKx4y5bxUJ_aK4Xy3G4sb9XCU5xALPVgl6oBb4v382cdOHzammOM_jxkGzSeCMnelGBqHw6LDNCbWjRjDolwLb0aPc3Fc9mNgyMryeA9WTuHdtoBj-lpif5X_nM3SCsltyGDu0RFh1rLS-khthP00S0aquRxS-zIsXSZq7NwR3icwfMi3UPOz5KIfpgdPRaZEf2D5xNKNVUgIli7"/> English
+                                </button>
+<button class="py-2 px-3 rounded-lg bg-surface-container text-on-surface-variant text-xs font-bold flex items-center justify-center gap-2 opacity-60">
+<img alt="VN" data-alt="minimalist icon of the Vietnam flag circle shape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqG9JtmCukNsEfZvcs7-X_VUwqis2-S8XA2z7ZVrpdluDvRssRrge_LF87cXalHv_JN0pGZAn2B9tN0TRyu0dnYf99vp99F17uw2VjaK7VdoZMwNaQXInWrKAgjwxXvrvKO4Hr-f2-403-OGqx75K3dM6yqWoEGOS5okkxDwwZ9cmA3EiWK_t5cinHUa-VS2PBm5bYqAkAZe2w4HMLkvn86Rf3uChSZevJBu0rJD9xmoECq0M9BARqA2lSbMTw4DFvsqgjuGnhqSM1"/> Tiếng Việt
+                                </button>
+</div>
+</div>
+<!-- Accessibility Slider -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Font Size</label>
+<span class="text-xs font-bold text-primary">Medium</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container rounded-full">
+<div class="absolute left-0 top-0 h-full w-1/2 bg-primary rounded-full"></div>
+<div class="absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-sm cursor-pointer"></div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant font-medium">
+<span>A</span>
+<span class="text-lg">A</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Notifications Card -->
+<section class="md:col-span-2 bg-surface-container-lowest rounded-2xl p-6 shadow-[0_4px_32px_-16px_rgba(79,70,229,0.1)]">
+<h3 class="text-xl font-bold mb-6">Learning Alerts</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-orange-100 text-orange-600 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment_late</span>
+</div>
+<div>
+<p class="text-sm font-bold">Homework Due</p>
+<p class="text-[10px] text-on-surface-variant">Remind me before deadlines</p>
+</div>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-green-100 text-green-600 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div>
+<p class="text-sm font-bold">New Badges</p>
+<p class="text-[10px] text-on-surface-variant">Celebrate my achievements</p>
+</div>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-blue-100 text-blue-600 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">forum</span>
+</div>
+<div>
+<p class="text-sm font-bold">Teacher Feedback</p>
+<p class="text-[10px] text-on-surface-variant">Notes on my assignments</p>
+</div>
+</div>
+<button class="w-10 h-5 bg-outline-variant/30 rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<div class="p-2 bg-purple-100 text-purple-600 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+</div>
+<div>
+<p class="text-sm font-bold">Study Streaks</p>
+<p class="text-[10px] text-on-surface-variant">Don't let the fire go out!</p>
+</div>
+</div>
+<button class="w-10 h-5 bg-primary rounded-full relative">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Safety/Parental Controls -->
+<section class="md:col-span-3 bg-tertiary-fixed rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_8px_32px_-8px_rgba(109,94,0,0.2)]">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-white/40 backdrop-blur-sm rounded-2xl flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h3 class="text-2xl font-extrabold text-on-tertiary-fixed tracking-tight">Parental Controls &amp; Safety</h3>
+<p class="text-on-tertiary-fixed-variant max-w-lg">Manage screen time limits, content filters, and account security. These settings require a 4-digit PIN.</p>
+</div>
+</div>
+<button class="bg-white text-tertiary px-8 py-3 rounded-xl font-bold shadow-[0_4px_0_0_#c4aa01] active:translate-y-[4px] active:shadow-none transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+                        Open Safety Dashboard
+                    </button>
+</section>
+</div>
+<div class="flex justify-end gap-4 py-8">
+<button class="px-6 py-3 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container transition-all">Cancel Changes</button>
+<button class="px-10 py-3 bg-primary text-white rounded-xl font-bold shadow-[0_4px_0_0_#3525cd] active:translate-y-[4px] active:shadow-none transition-all">Save My Settings</button>
+</div>
+</div>
+</main>
+</body></html>

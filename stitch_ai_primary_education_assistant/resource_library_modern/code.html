@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resource Library | The Digital Mentor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#247155",
+                    "primary-container": "#4f46e5",
+                    "inverse-primary": "#c3c0ff",
+                    "tertiary-fixed-dim": "#e2c62d",
+                    "tertiary": "#6d5e00",
+                    "on-surface": "#111c2d",
+                    "tertiary-container": "#c4aa01",
+                    "outline": "#777587",
+                    "surface-container-highest": "#d8e3fb",
+                    "outline-variant": "#c7c4d8",
+                    "secondary-container": "#a6f2cf",
+                    "surface": "#f9f9ff",
+                    "inverse-surface": "#263143",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#4a3f00",
+                    "on-tertiary-fixed": "#211b00",
+                    "on-tertiary-fixed-variant": "#524600",
+                    "surface-variant": "#d8e3fb",
+                    "on-secondary-fixed-variant": "#00513a",
+                    "primary-fixed": "#e2dfff",
+                    "on-secondary-fixed": "#002115",
+                    "on-background": "#111c2d",
+                    "inverse-on-surface": "#ecf1ff",
+                    "surface-tint": "#4d44e3",
+                    "primary": "#3525cd",
+                    "on-surface-variant": "#464555",
+                    "on-primary-fixed": "#0f0069",
+                    "surface-container": "#e7eeff",
+                    "surface-container-low": "#f0f3ff",
+                    "secondary": "#1b6b4f",
+                    "on-primary-fixed-variant": "#3323cc",
+                    "surface-container-high": "#dee8ff",
+                    "secondary-fixed": "#a6f2cf",
+                    "tertiary-fixed": "#ffe24c",
+                    "surface-bright": "#f9f9ff",
+                    "on-primary-container": "#dad7ff",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed-dim": "#c3c0ff",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#cfdaf2",
+                    "secondary-fixed-dim": "#8bd6b4",
+                    "background": "#f9f9ff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "2xl": "2rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cloud-shadow {
+            box-shadow: 0 16px 32px -12px rgba(79, 70, 229, 0.08);
+        }
+        .gamified-button-primary {
+            box-shadow: 0 4px 0 0 #3525cd;
+        }
+        .gamified-button-secondary {
+            box-shadow: 0 4px 0 0 #1b6b4f;
+        }
+        .staircase-item:nth-child(2) { margin-top: 8px; }
+        .staircase-item:nth-child(3) { margin-top: 16px; }
+        .staircase-item:nth-child(4) { margin-top: 24px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 rounded-b-2xl bg-white/80 backdrop-blur-xl flex justify-between items-center px-8 h-16 shadow-[0_16px_32px_-12px_rgba(79,70,229,0.08)]">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-indigo-600 tracking-tight">Student Explorer</span>
+<div class="hidden md:flex gap-6 items-center h-full">
+<a class="text-slate-600 hover:text-indigo-500 transition-all font-medium" href="#">My Classes</a>
+<a class="text-indigo-700 font-bold border-b-2 border-indigo-500 pb-1" href="#">Lessons</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-all font-medium" href="#">Achievements</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-all font-medium" href="#">Games</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-surface-container-high rounded-full px-4 py-2 gap-2">
+<span class="material-symbols-outlined text-slate-500 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 p-0" placeholder="Search resources..." type="text"/>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-white px-5 py-2 rounded-full font-bold text-sm gamified-button-primary hover:translate-y-[2px] transition-all">
+                Ask AI
+            </button>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 hover:bg-surface-container rounded-full transition-colors">notifications</span>
+<img alt="Student Avatar" class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="close-up portrait of a cheerful diverse student avatar in a clean minimalist 3D illustrative style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmvLKfADHPHer9PqaK421Fz4q-uFpEVBEJgtCmHnwaHFiOm362inYb2alvXQ833vfjBzBt7bw7Wr0IhPVOQfZUy1asXKNspIvD-gne_2Ce86kRila91RAen__gW8iIkkgdlW9hgaBI7iZyw0ubUNUA3g0dfBHujf2v-kxeOggfKRdZir0QR7a_Pv812u9LA2qUyejJeZoGw3apFZMMOP3wzJ8W6Y7T_zeqvxBD1Wxi4yaPYQEajvt50TF9ZqGqDfBX1KpCr0D1iFI0"/>
+</div>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full py-8 px-4 fixed left-0 top-0 w-64 bg-slate-50 shadow-[32px_0_32px_-16px_rgba(79,70,229,0.06)] z-40">
+<div class="mb-10 px-2">
+<h1 class="text-xl font-bold text-indigo-700 tracking-tight">The Digital Mentor</h1>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-widest">Educator Portal</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+                Student Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-indigo-700 font-bold border-r-4 border-indigo-600 bg-indigo-50/50 translate-x-1" href="#">
+<span class="material-symbols-outlined">library_books</span>
+                Resource Library
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors" href="#">
+<span class="material-symbols-outlined">psychology</span>
+                AI Insights
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Admin Settings
+            </a>
+</div>
+<div class="mt-auto flex flex-col gap-2 border-t border-slate-200/50 pt-6">
+<button class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors">
+<span class="material-symbols-outlined">help</span>
+                Help Center
+            </button>
+<button class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 font-medium hover:bg-indigo-50 transition-colors">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="lg:pl-64 pt-20 min-h-screen bg-surface">
+<div class="max-w-7xl mx-auto px-8 py-8">
+<!-- Hero Section: Recommended -->
+<section class="relative mb-16">
+<div class="relative overflow-hidden rounded-2xl bg-indigo-900 min-h-[380px] flex items-center p-12">
+<!-- Hero Background Image Overlay -->
+<div class="absolute inset-0 opacity-40">
+<img class="w-full h-full object-cover" data-alt="abstract tech background with glowing geometric lines and particles in deep indigo and purple tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG3rSJYafebhgaPyPKrxcd4A3pxwXhBSyIZiUIEH2oDOvEA0lON-p3RIUFxZygINrdPMQZKO50xz4ryofrt8NFFx3KmiTwm5M3KvQquUbBCf7lT-JvhzoDbvX5goJIYicv46WXoyIh20ADzVyKleTRBvGzaKPp4cGxTwkZm0tgbOgAm4GL-HL61aPcbyhtMGpHylITLb2NubvW7vAejTHhEZhua9YbtlyNyGwdlcyMoKUo6s5kdIJ9CmphKdrxf1dVvSBkvmhFY6Co"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-r from-indigo-950 via-indigo-900/40 to-transparent"></div>
+<div class="relative z-10 max-w-xl">
+<span class="inline-block px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-[10px] font-bold uppercase tracking-wider mb-4">New Release</span>
+<h2 class="text-white text-5xl font-extrabold tracking-tight leading-tight mb-4">The Quantum Physics <br/><span class="text-indigo-300">Simplified by AI</span></h2>
+<p class="text-indigo-100 text-lg mb-8 leading-relaxed">Master the fundamentals of subatomic particles through interactive 3D simulations and adaptive learning pathways.</p>
+<div class="flex gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-xl font-bold gamified-button-secondary hover:translate-y-[2px] transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">play_circle</span> Start Learning
+                            </button>
+<button class="bg-white/10 backdrop-blur-md text-white px-8 py-3 rounded-xl font-bold hover:bg-white/20 transition-all border border-white/20">
+                                Save for Later
+                            </button>
+</div>
+</div>
+<!-- Floating Asymmetric Element -->
+<div class="absolute right-[-40px] top-[-40px] w-80 h-80 bg-indigo-500/20 blur-[100px] rounded-full"></div>
+</div>
+</section>
+<!-- Learning Track Grid (Asymmetric) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+<!-- Main Library Hub -->
+<div class="md:col-span-8">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-2xl font-bold text-on-surface tracking-tight">Your Learning Path</h3>
+<p class="text-on-surface-variant font-medium">Continue where you left off</p>
+</div>
+<button class="text-indigo-600 font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                            Browse All <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Staircase Layout for Items -->
+<div class="flex flex-col gap-6">
+<div class="staircase-item flex items-center p-6 bg-surface-container-lowest rounded-2xl shadow-[0_8px_24px_-8px_rgba(79,70,229,0.08)] hover:translate-x-2 transition-transform cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+<span class="material-symbols-outlined text-3xl">functions</span>
+</div>
+<div class="ml-6 flex-grow">
+<h4 class="font-bold text-lg text-on-surface">Advanced Calculus Basics</h4>
+<p class="text-on-surface-variant text-sm">3 of 12 modules completed</p>
+<div class="mt-3 w-full bg-surface-container rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-1/4"></div>
+</div>
+</div>
+<div class="ml-8 text-right shrink-0">
+<span class="text-xs font-bold text-slate-400 uppercase">Next up</span>
+<p class="font-bold text-on-surface">Derivatives</p>
+</div>
+</div>
+<div class="staircase-item flex items-center p-6 bg-surface-container-lowest rounded-2xl shadow-[0_8px_24px_-8px_rgba(79,70,229,0.08)] hover:translate-x-2 transition-transform cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-secondary-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-3xl">language</span>
+</div>
+<div class="ml-6 flex-grow">
+<h4 class="font-bold text-lg text-on-surface">Modern Literature Analysis</h4>
+<p class="text-on-surface-variant text-sm">8 of 10 modules completed</p>
+<div class="mt-3 w-full bg-surface-container rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full w-[80%]"></div>
+</div>
+</div>
+<div class="ml-8 text-right shrink-0">
+<span class="text-xs font-bold text-slate-400 uppercase">Next up</span>
+<p class="font-bold text-on-surface">Metaphors</p>
+</div>
+</div>
+<div class="staircase-item flex items-center p-6 bg-surface-container-lowest rounded-2xl shadow-[0_8px_24px_-8px_rgba(79,70,229,0.08)] hover:translate-x-2 transition-transform cursor-pointer">
+<div class="w-16 h-16 rounded-xl bg-tertiary-container/20 flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-3xl">history_edu</span>
+</div>
+<div class="ml-6 flex-grow">
+<h4 class="font-bold text-lg text-on-surface">Ancient Civilization Hub</h4>
+<p class="text-on-surface-variant text-sm">1 of 15 modules completed</p>
+<div class="mt-3 w-full bg-surface-container rounded-full h-2">
+<div class="bg-tertiary h-2 rounded-full w-[5%]"></div>
+</div>
+</div>
+<div class="ml-8 text-right shrink-0">
+<span class="text-xs font-bold text-slate-400 uppercase">Next up</span>
+<p class="font-bold text-on-surface">Mesopotamia</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Sidebar -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<div class="bg-surface-container-low rounded-2xl p-8 h-full">
+<h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">psychology_alt</span> AI Generation
+                        </h3>
+<p class="text-on-surface-variant text-sm mb-6">Create a custom study plan based on any topic or textbook chapter.</p>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-lowest rounded-xl">
+<label class="text-[10px] font-bold text-slate-400 uppercase block mb-1">Topic</label>
+<input class="w-full border-none p-0 text-sm font-bold focus:ring-0" type="text" value="Photosynthesis in Desert Plants"/>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl">
+<label class="text-[10px] font-bold text-slate-400 uppercase block mb-1">Complexity</label>
+<div class="flex justify-between mt-2">
+<span class="text-xs font-bold text-primary">Beginner</span>
+<span class="text-xs font-bold text-slate-300">Expert</span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-2">
+<div class="bg-primary h-2 rounded-full w-1/3"></div>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-3 rounded-xl gamified-button-primary mt-4">
+                                Generate Lesson
+                            </button>
+</div>
+</div>
+<!-- Quick Discovery Card -->
+<div class="relative overflow-hidden rounded-2xl bg-secondary p-8 text-white h-full min-h-[200px]">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<h4 class="text-lg font-bold mb-2">Weekend Challenge</h4>
+<p class="text-secondary-fixed text-sm mb-6 opacity-90">Test your logic with this week's AI-curated math puzzles.</p>
+<button class="bg-white text-secondary px-4 py-2 rounded-lg font-bold text-sm shadow-lg">
+                            Take Challenge
+                        </button>
+</div>
+</div>
+</div>
+<!-- Subject Categories - Visual Grid -->
+<section class="mb-20">
+<h3 class="text-2xl font-bold text-on-surface tracking-tight mb-8">Explore by Subject</h3>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">science</span>
+</div>
+<span class="font-bold text-sm">Biology</span>
+</div>
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">calculate</span>
+</div>
+<span class="font-bold text-sm">Math</span>
+</div>
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">language</span>
+</div>
+<span class="font-bold text-sm">History</span>
+</div>
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">menu_book</span>
+</div>
+<span class="font-bold text-sm">Literature</span>
+</div>
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">palette</span>
+</div>
+<span class="font-bold text-sm">Fine Arts</span>
+</div>
+<!-- Subject Card -->
+<div class="group bg-surface-container-lowest p-6 rounded-2xl text-center hover:bg-primary hover:text-white transition-all cursor-pointer cloud-shadow">
+<div class="w-12 h-12 rounded-xl bg-surface-container mx-auto flex items-center justify-center mb-4 group-hover:bg-primary-container">
+<span class="material-symbols-outlined text-primary group-hover:text-white">code</span>
+</div>
+<span class="font-bold text-sm">CS</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 rounded-full bg-tertiary-container text-on-tertiary-container shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</body></html>

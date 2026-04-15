@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PriEdu - Student Learning Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600&amp;family=Geist+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#5f5e5e",
+                        "on-error-container": "#410002",
+                        "on-tertiary-fixed": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "secondary-fixed-dim": "#acabab",
+                        "secondary-container": "#d5d4d4",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#3c3b3b",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "primary-container": "#3c3b3b",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-container": "#ffffff",
+                        "secondary-fixed": "#c7c6c6",
+                        "surface-dim": "#dadada",
+                        "primary": "#000000",
+                        "on-background": "#1a1c1c",
+                        "inverse-primary": "#c8c6c5",
+                        "on-primary": "#e5e2e1",
+                        "on-tertiary": "#e4e2e1",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary-container": "#1b1c1c",
+                        "on-surface": "#1a1c1c",
+                        "outline-variant": "#c6c6c6",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-primary-fixed": "#ffffff",
+                        "tertiary-fixed": "#5f5e5e",
+                        "background": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-low": "#f3f3f3",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#e4e2e1",
+                        "outline": "#777777",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#474747",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "primary-fixed-dim": "#474646",
+                        "secondary": "#5e5e5e",
+                        "on-secondary-fixed-variant": "#3b3b3b",
+                        "on-primary-fixed-variant": "#e5e2e1",
+                        "tertiary-fixed-dim": "#474746",
+                        "tertiary-container": "#757474",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-on-surface": "#f0f1f1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .label-text { font-family: 'Space Grotesk', sans-serif; }
+        .mono-text { font-family: 'Geist Mono', monospace; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-slate-50 dark:bg-zinc-900 h-screen w-64 border-r border-transparent z-50">
+<div class="p-8 flex flex-col h-full">
+<div class="mb-12">
+<h1 class="text-lg font-bold tracking-tighter text-black dark:text-white">PriEdu</h1>
+<p class="text-[0.625rem] label-text uppercase font-bold text-zinc-400 mt-1">Academic Portal</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-black dark:text-white font-bold border-r-2 border-black dark:border-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="label-text text-[0.75rem] uppercase">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="label-text text-[0.75rem] uppercase">Curriculum</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="label-text text-[0.75rem] uppercase">Assessments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="label-text text-[0.75rem] uppercase">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="label-text text-[0.75rem] uppercase">Resources</span>
+</a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg label-text text-[0.75rem] uppercase font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined !text-sm" data-icon="add">add</span>
+                    New Session
+                </button>
+<div class="pt-8 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="label-text text-[0.7rem] uppercase">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-zinc-500 hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+<span class="label-text text-[0.7rem] uppercase">Support</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 flex items-center justify-between px-8 bg-white/70 dark:bg-black/70 backdrop-blur-xl z-40">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-sm pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary" placeholder="Search resources or lessons..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-zinc-500">
+<button class="hover:text-black transition-opacity"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="hover:text-black transition-opacity"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
+</div>
+<div class="h-8 w-px bg-surface-container-highest"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold leading-none">Nguyen Minh</p>
+<p class="mono-text text-[10px] text-zinc-400">ID: PR-94421</p>
+</div>
+<img alt="User Profile" class="w-9 h-9 rounded-full object-cover" data-alt="Close-up portrait of a young male student in a bright educational environment with soft lighting and professional finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWrDyKGYS-Y-7bykTEmD5XuSiUdC71kJLuxoKIvYZh0nnJIDDuQKaeN-ZRk2QZyL-BjZykwIPvN4JDMV-zFbXi512Pu_2KNNEVGVF-h-KY0-GCsNxup1tdvAP2N2z_CkEX_5sxl1zENAwhJIxfkjBeYKtr7NhbsTy0QTuY9BCeYpX2zooQ6QGSO4Uu2F00vbJj3iJN3WDZ9MdGr4PJQ-rknCAg-xex1dv0gMjbqXgVtR2MCJpbfS5ebTA_Xuqr8eDYLlN5kwmVDEih"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-[1200px] mx-auto p-10 space-y-10">
+<!-- Hero / Greeting -->
+<section class="flex justify-between items-end">
+<div class="space-y-2">
+<p class="mono-text text-sm text-primary-fixed uppercase tracking-widest font-bold">Session: Semester II, 2024</p>
+<h2 class="text-4xl font-bold tracking-tight text-primary">Academic Overview</h2>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-lg flex items-center gap-3">
+<span class="block w-2 h-2 rounded-full bg-green-500"></span>
+<span class="mono-text text-xs font-bold">STATUS: ON TRACK</span>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Performance Chart (Large Card) -->
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.02)] relative overflow-hidden group">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="text-lg font-semibold tracking-tight">Performance Velocity</h3>
+<p class="text-sm text-zinc-500">Cumulative score trend vs. target path</p>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<span class="block mono-text text-[10px] text-zinc-400 uppercase">Current AVG</span>
+<span class="block text-xl font-bold">8.4/10</span>
+</div>
+</div>
+</div>
+<!-- Simplified Visual Graph Placeholder -->
+<div class="h-64 flex items-end justify-between gap-2">
+<div class="flex-1 bg-surface-container-low h-[40%] rounded-sm hover:bg-black transition-colors cursor-help group/bar relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded hidden group-hover/bar:block">6.2</div>
+</div>
+<div class="flex-1 bg-surface-container-low h-[55%] rounded-sm hover:bg-black transition-colors cursor-help group/bar relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded hidden group-hover/bar:block">7.1</div>
+</div>
+<div class="flex-1 bg-surface-container-low h-[48%] rounded-sm hover:bg-black transition-colors cursor-help group/bar relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded hidden group-hover/bar:block">6.8</div>
+</div>
+<div class="flex-1 bg-surface-container-low h-[70%] rounded-sm hover:bg-black transition-colors cursor-help group/bar relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded hidden group-hover/bar:block">8.2</div>
+</div>
+<div class="flex-1 bg-primary h-[85%] rounded-sm relative group/bar">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-[10px] px-2 py-1 rounded">8.4</div>
+</div>
+<div class="flex-1 bg-surface-container-high h-[10%] rounded-sm border-2 border-dashed border-zinc-300"></div>
+<div class="flex-1 bg-surface-container-high h-[10%] rounded-sm border-2 border-dashed border-zinc-300"></div>
+</div>
+<div class="mt-4 flex justify-between px-2 mono-text text-[10px] text-zinc-400">
+<span>WK 04</span>
+<span>WK 05</span>
+<span>WK 06</span>
+<span>WK 07</span>
+<span>WK 08 (CURRENT)</span>
+<span>WK 09</span>
+<span>WK 10</span>
+</div>
+</div>
+<!-- Gia sư AI Status (Socratic Mentor) -->
+<div class="col-span-4 bg-black text-white p-8 rounded-xl relative overflow-hidden flex flex-col">
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-fixed" data-icon="psychology">psychology</span>
+<span class="label-text text-[0.7rem] uppercase tracking-widest font-bold">Active Module</span>
+</div>
+<h3 class="text-2xl font-bold leading-tight mb-2">Gia sư AI</h3>
+<p class="text-zinc-400 text-sm mb-8 leading-relaxed">Your Socratic mentor is analyzing your recent calculus assessment. Ready for a challenge?</p>
+</div>
+<div class="mt-auto space-y-4 relative z-10">
+<div class="bg-zinc-800/50 p-4 rounded-lg border border-zinc-700/50">
+<p class="mono-text text-[10px] text-zinc-500 uppercase mb-1">Observation</p>
+<p class="text-xs italic">"You're struggling with chain rule derivatives. Should we look at visual proofs?"</p>
+</div>
+<button class="w-full bg-white text-black py-3 rounded-lg font-bold text-sm hover:bg-zinc-200 transition-colors">Start Interaction</button>
+</div>
+<!-- Decorative background glow -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-zinc-800 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 opacity-50"></div>
+</div>
+<!-- Learning Path (Curriculum Map) -->
+<div class="col-span-12 grid grid-cols-4 gap-6">
+<div class="col-span-3 bg-surface-container-low p-8 rounded-xl">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold tracking-tight">Curriculum Map</h3>
+<button class="text-xs mono-text font-bold uppercase hover:underline">View full roadmap</button>
+</div>
+<div class="relative flex justify-between">
+<!-- Roadmap Connector Line -->
+<div class="absolute top-1/2 left-0 w-full h-[2px] bg-zinc-200 -translate-y-1/2 z-0"></div>
+<!-- Node 1: Completed -->
+<div class="relative z-10 flex flex-col items-center gap-4 group">
+<div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined" data-icon="check" data-weight="fill">check</span>
+</div>
+<div class="text-center">
+<p class="label-text text-[0.6rem] uppercase text-zinc-500 font-bold">Module 01</p>
+<p class="text-xs font-bold">Fundamentals</p>
+</div>
+</div>
+<!-- Node 2: Completed -->
+<div class="relative z-10 flex flex-col items-center gap-4">
+<div class="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined" data-icon="check" data-weight="fill">check</span>
+</div>
+<div class="text-center">
+<p class="label-text text-[0.6rem] uppercase text-zinc-500 font-bold">Module 02</p>
+<p class="text-xs font-bold">Kinematics</p>
+</div>
+</div>
+<!-- Node 3: Current -->
+<div class="relative z-10 flex flex-col items-center gap-4">
+<div class="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center border-4 border-black ring-8 ring-white/50">
+<span class="material-symbols-outlined !text-3xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+<div class="text-center">
+<p class="label-text text-[0.6rem] uppercase text-primary font-bold">In Progress</p>
+<p class="text-sm font-bold">Thermodynamics</p>
+</div>
+</div>
+<!-- Node 4: Future -->
+<div class="relative z-10 flex flex-col items-center gap-4 opacity-40">
+<div class="w-12 h-12 bg-zinc-200 text-zinc-500 rounded-full flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div class="text-center">
+<p class="label-text text-[0.6rem] uppercase font-bold">Module 04</p>
+<p class="text-xs font-bold">Optics</p>
+</div>
+</div>
+<!-- Node 5: Future -->
+<div class="relative z-10 flex flex-col items-center gap-4 opacity-40">
+<div class="w-12 h-12 bg-zinc-200 text-zinc-500 rounded-full flex items-center justify-center border-4 border-surface-container-low">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<div class="text-center">
+<p class="label-text text-[0.6rem] uppercase font-bold">Final Exam</p>
+<p class="text-xs font-bold">Capstone</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Today's Assignments -->
+<div class="col-span-1 bg-surface-container-highest p-6 rounded-xl space-y-6">
+<h3 class="label-text text-[0.75rem] uppercase font-bold text-zinc-600 border-b border-zinc-300 pb-2">Today's Tasks</h3>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-4 h-4 border-2 border-zinc-400 rounded-sm group-hover:border-black transition-colors"></div>
+<div>
+<p class="text-xs font-bold leading-tight">Physics Lab Report</p>
+<p class="mono-text text-[10px] text-error font-bold mt-1">DUE 18:00</p>
+</div>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer">
+<div class="mt-1 w-4 h-4 border-2 border-zinc-400 rounded-sm group-hover:border-black transition-colors"></div>
+<div>
+<p class="text-xs font-bold leading-tight">Calc Quiz 04</p>
+<p class="mono-text text-[10px] text-zinc-500 mt-1">OPTIONAL</p>
+</div>
+</li>
+<li class="flex items-start gap-3 group cursor-pointer opacity-50">
+<div class="mt-1 w-4 h-4 bg-black border-2 border-black rounded-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-white !text-[12px]" data-icon="check">check</span>
+</div>
+<div>
+<p class="text-xs font-bold leading-tight line-through">History Reading</p>
+<p class="mono-text text-[10px] text-zinc-500 mt-1 uppercase">Completed</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Secondary Row (Resource Cards) -->
+<div class="col-span-4 bg-surface-container-low rounded-xl overflow-hidden group">
+<div class="h-40 relative">
+<img alt="Study Resource" class="w-full h-full object-cover" data-alt="Digital library interface with sleek typography and technical documentation visuals on a dark tablet screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD-vVspyfJSSEkD5RrZ3fBxh3mHmaNAJNhlhUHLMIOSTNbcpUCRDk3Miltxt-5K1IS_dn0H7tAU_-F13LPo5Zd9LKWMmaFwZpCZZacLsmqWwvOmFwKY73nru3n4CAqkL7rnUNnIscPcPeJTrdZHQuGQbFvt1VJdNqbCI04-ZENKHD4E3jBKAHn9UjYS9kKbnVN2FY1sGxEoyKN1qQuIt20-qgKvAvJXkJXw23rDhqVRgfLC7YOS6Nth6F6q6ZIwmrnZaebJ8Yqs9h3"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+<button class="bg-white text-black px-4 py-2 rounded text-xs font-bold">Open Library</button>
+</div>
+</div>
+<div class="p-6">
+<span class="label-text text-[0.6rem] uppercase text-zinc-500 font-bold">Reference Material</span>
+<h4 class="text-sm font-bold mt-1">Physics Equation Cheat Sheet</h4>
+<p class="text-[10px] mono-text text-zinc-400 mt-2">UPDATED 2 DAYS AGO • PDF 4.2MB</p>
+</div>
+</div>
+<div class="col-span-4 bg-surface-container-low rounded-xl overflow-hidden group">
+<div class="h-40 relative">
+<img alt="Classroom" class="w-full h-full object-cover" data-alt="Modern minimal classroom with clean white surfaces, soft natural lighting, and high-tech display screens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHWV4tEHOtoPyYN1AycUColvvZLyc5LXTaYMR5Pz4iSHJQ1PeO1VnG7FXOeUlypXDkrCkrhIUavQij1whz-JMg2JSigokmsi-KmPFT1LIQVfbWS3fe6ASm84tf6OlrnOPANcJ-8GJ5hMOkBtX_pBVg6sBs9jQKMj84pttb_0JOx73uOQwVSFlZ2iNuFKcNLCxjrD0di92VH_ohvpyh3fugyg4DSKPMhM3KGr8KhgH2STpHMR0hxjoQ7vdTfPBSEgFAqN7Bvu9igwGB"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+<button class="bg-white text-black px-4 py-2 rounded text-xs font-bold">Join Room</button>
+</div>
+</div>
+<div class="p-6">
+<span class="label-text text-[0.6rem] uppercase text-zinc-500 font-bold">Collaboration</span>
+<h4 class="text-sm font-bold mt-1">Thermodynamics Study Group</h4>
+<p class="text-[10px] mono-text text-zinc-400 mt-2">3 ACTIVE MEMBERS • ROOM A-12</p>
+</div>
+</div>
+<div class="col-span-4 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between border-2 border-dashed border-zinc-200 hover:border-zinc-400 transition-colors cursor-pointer">
+<div>
+<h4 class="text-sm font-bold">Upcoming Exam Prep</h4>
+<p class="text-xs text-zinc-500 mt-2">Generate a personalized study plan based on your current gaps.</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
+<span>Initiate Plan</span>
+<span class="material-symbols-outlined !text-sm" data-icon="trending_flat">trending_flat</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom utility bar for focus mode (Floating behavior but fixed at bottom) -->
+<div class="fixed bottom-6 right-8 left-72 z-40 bg-white/70 backdrop-blur-md rounded-xl p-4 flex items-center justify-between shadow-[0_20px_40px_rgba(0,0,0,0.04),0_1px_3px_rgba(0,0,0,0.02)]">
+<div class="flex items-center gap-4">
+<div class="bg-black text-white p-2 rounded">
+<span class="material-symbols-outlined !text-xl" data-icon="timer">timer</span>
+</div>
+<div>
+<p class="text-xs font-bold">Study Session Timer</p>
+<p class="mono-text text-[10px] text-zinc-400 uppercase">Pomodoro: 25:00 active</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-zinc-100 rounded-full transition-colors">
+<span class="material-symbols-outlined text-zinc-600" data-icon="volume_off">volume_off</span>
+</button>
+<div class="h-6 w-px bg-zinc-200"></div>
+<button class="bg-black text-white px-6 py-2 rounded-lg label-text text-[0.7rem] uppercase font-bold">Start Focus Mode</button>
+</div>
+</div>
+</body></html>

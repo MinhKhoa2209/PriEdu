@@ -20,7 +20,7 @@ export default function HomePage() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
           <Link 
-            href="/dashboard" 
+            href="/student/dashboard" 
             className="rounded-full bg-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-indigo-500 hover:scale-105 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 active:scale-95"
           >
             Go to Student Dashboard
