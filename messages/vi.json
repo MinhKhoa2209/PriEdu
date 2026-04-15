@@ -1,0 +1,103 @@
+{
+  "common": {
+    "appName": "PriEdu",
+    "tagline": "Phòng chơi thông minh",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "search": "Tìm kiếm",
+    "filter": "Lọc"
+  },
+  "nav": {
+    "dashboard": "Bảng điều khiển",
+    "chat": "Trò chuyện AI",
+    "adventure": "Phiêu lưu",
+    "library": "Thư viện",
+    "students": "Học sinh",
+    "review": "Đánh giá",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất"
+  },
+  "student": {
+    "dashboard": {
+      "greeting": "Chào buổi sáng",
+      "title": "Young Explorer!",
+      "subtitle": "Sẵn sàng để tiếp tục cuộc hành trình khám phá tri thức của bạn hôm nay chưa?",
+      "streak": "Streak",
+      "days": "Ngày",
+      "stars": "Sao",
+      "learningPath": "Lộ trình học tập",
+      "learningPathSubtitle": "Hành trình khám phá vũ trụ tri thức",
+      "dailyTasks": "Nhiệm vụ hôm nay",
+      "completed": "Hoàn thành",
+      "achievements": "Thành tựu",
+      "recentActivity": "Hoạt động gần đây"
+    },
+    "chat": {
+      "title": "Gia sư AI: Socratic",
+      "status": "Đang sẵn sàng hỗ trợ",
+      "placeholder": "Hỏi Gia sư AI bất cứ điều gì...",
+      "emptyState": "Hỏi Gia sư AI bất cứ điều gì nhé! Giống như: \"Hố đen là gì?\"",
+      "disclaimer": "Gia sư AI có thể mắc lỗi, hãy luôn kiểm tra lại kiến thức nhé!",
+      "listening": "Socratic đang lắng nghe...",
+      "resources": "Tài liệu bài học"
+    },
+    "adventure": {
+      "title": "Bản đồ phiêu lưu",
+      "questLog": "Nhật ký nhiệm vụ",
+      "rewards": "Phần thưởng",
+      "level": "Cấp độ"
+    },
+    "library": {
+      "title": "Thư viện tri thức",
+      "featured": "Nổi bật",
+      "categories": "Danh mục",
+      "recent": "Gần đây"
+    }
+  },
+  "teacher": {
+    "dashboard": {
+      "welcome": "Chào mừng trở lại",
+      "subtitle": "Các học trò của bạn đã rất chăm chỉ!",
+      "newAssignments": "bài tập mới đang chờ đánh giá",
+      "classProgress": "Tiến độ lớp học",
+      "averageMastery": "Mức độ thành thạo trung bình",
+      "weeklyGrowth": "tuần này",
+      "weakAreas": "Điểm yếu cần chú ý",
+      "upcomingEvents": "Sự kiện sắp tới"
+    },
+    "review": {
+      "title": "Đánh giá bài tập",
+      "score": "Điểm",
+      "confidence": "Độ tin cậy",
+      "transcription": "Phiên âm",
+      "feedback": "Phản hồi",
+      "approve": "Phê duyệt",
+      "reject": "Từ chối"
+    },
+    "students": {
+      "title": "Danh sách học sinh",
+      "attendance": "Điểm danh",
+      "grades": "Điểm số",
+      "alerts": "Cảnh báo AI",
+      "viewProfile": "Xem hồ sơ"
+    }
+  },
+  "auth": {
+    "login": "Đăng nhập",
+    "logout": "Đăng xuất",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "noAccount": "Chưa có tài khoản?",
+    "signUp": "Đăng ký"
+  },
+  "theme": {
+    "light": "Sáng",
+    "dark": "Tối",
+    "system": "Hệ thống"
+  }
+}

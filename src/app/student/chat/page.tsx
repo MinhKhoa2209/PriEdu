@@ -1,13 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useChat } from "ai/react";
-import { useEffect, useRef } from "react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export default function ChatPage() {
-  const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat({
-    api: "/api/chat",
+  const { data: session, status } = useSession();
+  
+  if (status === "unauthenticated") {
+    redirect("/login");
+  }
+
+  const { messages, sendMessage, status: chatStatus } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
+  const [localInput, setLocalInput] = useState("");
+  const isLoading = chatStatus === "streaming" || chatStatus === "submitted";
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -16,6 +27,13 @@ export default function ChatPage() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!localInput.trim() || isLoading) return;
+    sendMessage({ text: localInput });
+    setLocalInput("");
+  }
 
   return (
     <div className="flex h-[calc(100vh-6rem)] -m-4 md:-m-8">
@@ -104,8 +122,13 @@ export default function ChatPage() {
               <p className="font-medium text-lg">Hỏi Gia sư AI bất cứ điều gì nhé! Giống như: "Hố đen là gì?"</p>
             </div>
           ) : (
-            messages.map(m => (
-              m.role === 'user' ? (
+            messages.map(m => {
+              const textContent = m.parts
+                .filter(p => p.type === 'text')
+                .map(p => p.type === 'text' ? p.text : '')
+                .join('');
+              
+              return m.role === 'user' ? (
                 /* User Bubble */
                 <div key={m.id} className="flex gap-4 max-w-3xl ml-auto flex-row-reverse animate-in fade-in slide-in-from-bottom-2">
                   <div className="w-10 h-10 rounded-xl bg-secondary-container flex-shrink-0 flex items-center justify-center">
@@ -114,7 +137,7 @@ export default function ChatPage() {
                   <div className="space-y-2 flex flex-col items-end">
                     <div className="bg-secondary-container p-6 rounded-2xl rounded-tr-none shadow-sm">
                       <p className="text-on-secondary-container leading-relaxed text-lg font-medium whitespace-pre-wrap">
-                        {m.content}
+                        {textContent}
                       </p>
                     </div>
                     <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase mr-2">Young Explorer</span>
@@ -129,14 +152,14 @@ export default function ChatPage() {
                   <div className="space-y-2">
                     <div className="socratic-glass p-6 rounded-2xl rounded-tl-none shadow-sm">
                       <p className="text-on-surface leading-relaxed text-lg font-medium whitespace-pre-wrap">
-                        {m.content}
+                        {textContent}
                       </p>
                     </div>
                     <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase ml-2">Gia Sư AI</span>
                   </div>
                 </div>
-              )
-            ))
+              );
+            })
           )}
           {isLoading && (
             <div className="flex gap-4 max-w-3xl animate-pulse">
@@ -166,8 +189,8 @@ export default function ChatPage() {
                 className="flex-1 bg-transparent border-none focus:ring-0 text-lg py-4 px-2 placeholder:text-on-surface-variant/40 font-headline font-medium outline-none" 
                 placeholder="Hỏi Gia sư AI bất cứ điều gì..." 
                 type="text"
-                value={input}
-                onChange={handleInputChange}
+                value={localInput}
+                onChange={(e) => setLocalInput(e.target.value)}
                 disabled={isLoading}
               />
               <div className="flex items-center gap-2 pr-2">
@@ -176,7 +199,7 @@ export default function ChatPage() {
                 </button>
                 <button 
                   type="submit" 
-                  disabled={isLoading || !input.trim()}
+                  disabled={isLoading || !localInput.trim()}
                   className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center shadow-[0_4px_0_rgb(51,35,204)] active:shadow-none active:translate-y-[2px] transition-all disabled:opacity-50 disabled:shadow-none disabled:translate-y-[2px]"
                 >
                   <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>send</span>

@@ -1,36 +1,52 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { ROUTES } from './src/shared/constants';
+import { getToken } from 'next-auth/jwt';
 
 /**
  * Route Protection Middleware
- * Runs on the Edge before each request.
- * 
- * Current Status: Placeholder - reads a 'role' cookie for demo.
- * Replace with real JWT/session validation (e.g. NextAuth, Lucia Auth) in production.
+ * Protects routes based on authentication and role
  */
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Read role from cookie (placeholder — replace with real auth session check)
-  const role = request.cookies.get('role')?.value;
+  // Get JWT token from NextAuth
+  const token = await getToken({
+    req: request,
+    secret: process.env.NEXTAUTH_SECRET || 'supersecret123',
+  });
 
-  // Protect student routes: /dashboard
-  if (pathname.startsWith('/dashboard') && role !== 'STUDENT') {
-    // TODO: Redirect to login once auth is implemented
-    // return NextResponse.redirect(new URL(ROUTES.LOGIN, request.url));
+  // Public routes that don't need authentication
+  const publicRoutes = ['/login', '/api/auth'];
+  const isPublicRoute = publicRoutes.some(route => pathname.startsWith(route));
+
+  // If accessing public route, allow
+  if (isPublicRoute) {
+    return NextResponse.next();
   }
 
-  // Protect teacher routes: /teacher/*
+  // If not authenticated, redirect to login
+  if (!token) {
+    const loginUrl = new URL('/login', request.url);
+    loginUrl.searchParams.set('callbackUrl', pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  // Check role-based access
+  const role = token.role as string;
+
+  // Protect student routes
+  if (pathname.startsWith('/student') && role !== 'STUDENT') {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+
+  // Protect teacher routes
   if (pathname.startsWith('/teacher') && role !== 'TEACHER') {
-    // TODO: Redirect to login once auth is implemented
-    // return NextResponse.redirect(new URL(ROUTES.LOGIN, request.url));
+    return NextResponse.redirect(new URL('/login', request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  // Match all routes except Next.js internal routes and static files
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api/auth|_next/static|_next/image|favicon.ico).*)'],
 };

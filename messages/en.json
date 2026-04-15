@@ -1,0 +1,103 @@
+{
+  "common": {
+    "appName": "PriEdu",
+    "tagline": "The Intelligent Playroom",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "chat": "AI Chat",
+    "adventure": "Adventure",
+    "library": "Library",
+    "students": "Students",
+    "review": "Review",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "student": {
+    "dashboard": {
+      "greeting": "Good morning",
+      "title": "Young Explorer!",
+      "subtitle": "Ready to continue your knowledge discovery journey today?",
+      "streak": "Streak",
+      "days": "Days",
+      "stars": "Stars",
+      "learningPath": "Learning Path",
+      "learningPathSubtitle": "Journey through the universe of knowledge",
+      "dailyTasks": "Today's Tasks",
+      "completed": "Completed",
+      "achievements": "Achievements",
+      "recentActivity": "Recent Activity"
+    },
+    "chat": {
+      "title": "AI Tutor: Socratic",
+      "status": "Ready to help",
+      "placeholder": "Ask AI Tutor anything...",
+      "emptyState": "Ask AI Tutor anything! Like: \"What is a black hole?\"",
+      "disclaimer": "AI Tutor can make mistakes, always verify the knowledge!",
+      "listening": "Socratic is listening...",
+      "resources": "Lesson Resources"
+    },
+    "adventure": {
+      "title": "Adventure Map",
+      "questLog": "Quest Log",
+      "rewards": "Rewards",
+      "level": "Level"
+    },
+    "library": {
+      "title": "Knowledge Library",
+      "featured": "Featured",
+      "categories": "Categories",
+      "recent": "Recent"
+    }
+  },
+  "teacher": {
+    "dashboard": {
+      "welcome": "Welcome back",
+      "subtitle": "Your explorers have been busy!",
+      "newAssignments": "new assignments ready for review",
+      "classProgress": "Class Progress Overview",
+      "averageMastery": "Average mastery across all modules",
+      "weeklyGrowth": "this week",
+      "weakAreas": "Weak Areas to Address",
+      "upcomingEvents": "Upcoming Events"
+    },
+    "review": {
+      "title": "Review Assignments",
+      "score": "Score",
+      "confidence": "Confidence",
+      "transcription": "Transcription",
+      "feedback": "Feedback",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "students": {
+      "title": "Student Directory",
+      "attendance": "Attendance",
+      "grades": "Grades",
+      "alerts": "AI Alerts",
+      "viewProfile": "View Profile"
+    }
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "signUp": "Sign Up"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

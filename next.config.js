@@ -5,17 +5,17 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'lh3.googleusercontent.com',
-        port: '',
-        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/**',
-      }
+      },
     ],
   },
 };
 
-module.exports = nextConfig;
+const withNextIntl = require('next-intl/plugin')(
+  './src/i18n/request.ts'
+);
+
+module.exports = withNextIntl(nextConfig);
