@@ -6,9 +6,11 @@ import { DefaultChatTransport } from "ai";
 import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function ChatPage() {
   const { data: session, status } = useSession();
+  const t = useTranslations("student.chat");
   
   if (status === "unauthenticated") {
     redirect("/login");
@@ -45,27 +47,27 @@ export default function ChatPage() {
               <span className="material-symbols-outlined text-2xl">auto_stories</span>
             </div>
             <div>
-              <h3 className="font-bold text-on-surface font-headline">Chương 3</h3>
-              <p className="text-xs text-on-surface-variant font-medium">Khám phá Vũ trụ</p>
+              <h3 className="font-bold text-on-surface font-headline">{t('chapter', { number: 3 })}</h3>
+              <p className="text-xs text-on-surface-variant font-medium">{t('exploreUniverse')}</p>
             </div>
           </div>
 
           <div className="space-y-1">
             <div className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-primary/10">
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-              <span className="text-sm font-semibold text-on-surface">Mặt trăng là gì?</span>
+              <span className="text-sm font-semibold text-on-surface">{t('moonLesson')}</span>
             </div>
             <div className="flex items-center gap-3 p-3 bg-primary-container text-on-primary-container rounded-xl shadow-md scale-105 transition-transform">
               <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>rocket_launch</span>
-              <span className="text-sm font-bold">Các hành tinh xóm giềng</span>
+              <span className="text-sm font-bold">{t('planetsLesson')}</span>
             </div>
             <div className="flex items-center gap-3 p-3 opacity-60 grayscale">
               <span className="material-symbols-outlined text-on-surface-variant">lock</span>
-              <span className="text-sm font-medium text-on-surface-variant">Vì sao sao lại sáng?</span>
+              <span className="text-sm font-medium text-on-surface-variant">{t('starsLesson')}</span>
             </div>
             <div className="flex items-center gap-3 p-3 opacity-40 grayscale">
               <span className="material-symbols-outlined text-on-surface-variant">lock</span>
-              <span className="text-sm font-medium text-on-surface-variant">Du hành liên sao</span>
+              <span className="text-sm font-medium text-on-surface-variant">{t('interstellarLesson')}</span>
             </div>
           </div>
         </div>
@@ -73,7 +75,7 @@ export default function ChatPage() {
         <div className="mt-auto pt-6 border-t border-outline-variant/20">
           <div className="bg-secondary-container p-4 rounded-2xl">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-xs font-bold text-on-secondary-container uppercase tracking-wider font-headline">Tiến độ tuần</span>
+              <span className="text-xs font-bold text-on-secondary-container uppercase tracking-wider font-headline">{t('weeklyProgress')}</span>
               <span className="text-xs font-bold text-on-secondary-container font-headline">85%</span>
             </div>
             <div className="h-2 w-full bg-white/40 rounded-full overflow-hidden">
@@ -100,16 +102,16 @@ export default function ChatPage() {
               <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
             </div>
             <div>
-              <h1 className="font-bold text-on-surface text-lg leading-tight font-headline">Gia sư AI: Socratic</h1>
+              <h1 className="font-bold text-on-surface text-lg leading-tight font-headline">{t('title')}</h1>
               <div className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
-                <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Đang sẵn sàng hỗ trợ</span>
+                <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">{t('status')}</span>
               </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <button className="px-4 py-2 bg-surface-container-low text-primary text-sm font-bold rounded-full hover:bg-primary/5 transition-all outline-none">
-              Tài liệu bài học
+              {t('resources')}
             </button>
           </div>
         </div>
@@ -119,7 +121,7 @@ export default function ChatPage() {
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full text-on-surface-variant/60 space-y-4">
               <span className="material-symbols-outlined text-6xl opacity-50">smart_toy</span>
-              <p className="font-medium text-lg">Hỏi Gia sư AI bất cứ điều gì nhé! Giống như: "Hố đen là gì?"</p>
+              <p className="font-medium text-lg">{t('emptyState')}</p>
             </div>
           ) : (
             messages.map(m => {
@@ -140,7 +142,7 @@ export default function ChatPage() {
                         {textContent}
                       </p>
                     </div>
-                    <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase mr-2">Young Explorer</span>
+                    <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase mr-2">{t('youngExplorer')}</span>
                   </div>
                 </div>
               ) : (
@@ -155,7 +157,7 @@ export default function ChatPage() {
                         {textContent}
                       </p>
                     </div>
-                    <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase ml-2">Gia Sư AI</span>
+                    <span className="text-[10px] font-bold text-on-surface-variant/60 uppercase ml-2">{t('aiTutorName')}</span>
                   </div>
                 </div>
               );
@@ -179,7 +181,7 @@ export default function ChatPage() {
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8 bg-gradient-to-t from-surface via-surface/80 to-transparent">
           <form onSubmit={handleSubmit} className="max-w-4xl mx-auto relative group">
             <div className="absolute -top-10 left-0 right-0 flex justify-center opacity-0 group-focus-within:opacity-100 transition-opacity pointer-events-none">
-              <div className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">Socratic đang lắng nghe...</div>
+              <div className="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">{t('listening')}</div>
             </div>
             <div className="relative flex items-center bg-white rounded-2xl shadow-[0_20px_50px_rgba(53,37,205,0.1)] border border-outline-variant/20 p-2 focus-within:border-primary/40 transition-all">
                <button type="button" className="p-3 text-on-surface-variant hover:text-primary transition-colors outline-none cursor-pointer">
@@ -187,7 +189,7 @@ export default function ChatPage() {
               </button>
               <input 
                 className="flex-1 bg-transparent border-none focus:ring-0 text-lg py-4 px-2 placeholder:text-on-surface-variant/40 font-headline font-medium outline-none" 
-                placeholder="Hỏi Gia sư AI bất cứ điều gì..." 
+                placeholder={t('placeholder')}
                 type="text"
                 value={localInput}
                 onChange={(e) => setLocalInput(e.target.value)}
@@ -207,7 +209,7 @@ export default function ChatPage() {
               </div>
             </div>
             <p className="text-center mt-3 text-[11px] font-bold text-on-surface-variant/50 uppercase tracking-widest">
-              Gia sư AI có thể mắc lỗi, hãy luôn kiểm tra lại kiến thức nhé!
+              {t('disclaimer')}
             </p>
           </form>
         </div>

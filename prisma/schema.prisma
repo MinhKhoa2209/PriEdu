@@ -42,7 +42,7 @@ model User {
   emailVerified DateTime?
   image         String?
   password      String?
-  role          Role      @default(STUDENT)
+  role          Role?     // Nullable for Google OAuth users
   
   // Custom Gamification Stats
   level         Int       @default(1)
@@ -54,6 +54,8 @@ model User {
   sessions      Session[]
   submissions   Submission[]
   chatSessions  ChatSession[]
+  studentQuests StudentQuest[]
+  studentLessons StudentLesson[]
 }
 
 model VerificationToken {
@@ -130,4 +132,123 @@ model KnowledgeNode {
   lastTested  DateTime @default(now())
 
   @@unique([studentId, nodeKey])
+}
+
+// Quest System Models
+model Quest {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  description   String
+  subject       String
+  difficulty    Int
+  xpReward      Int
+  starsReward   Int
+  requiredLevel Int
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  
+  studentQuests StudentQuest[]
+  
+  @@index([requiredLevel])
+  @@index([subject])
+}
+
+model StudentQuest {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  studentId   String      @db.ObjectId
+  questId     String      @db.ObjectId
+  status      QuestStatus
+  progress    Int         @default(0)
+  startedAt   DateTime?
+  completedAt DateTime?
+  
+  student     User        @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  quest       Quest       @relation(fields: [questId], references: [id], onDelete: Cascade)
+  
+  @@unique([studentId, questId])
+  @@index([studentId])
+}
+
+enum QuestStatus {
+  LOCKED
+  AVAILABLE
+  IN_PROGRESS
+  COMPLETED
+}
+
+// Resource Library Models
+model Resource {
+  id           String       @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  description  String
+  type         ResourceType
+  subject      String
+  difficulty   Int
+  duration     Int
+  thumbnailUrl String
+  contentUrl   String
+  featured     Boolean      @default(false)
+  viewCount    Int          @default(0)
+  tags         String[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  
+  @@index([featured])
+  @@index([subject])
+}
+
+enum ResourceType {
+  VIDEO
+  ARTICLE
+  QUIZ
+  INTERACTIVE
+}
+
+// Learning Path Models
+model Chapter {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  subject     String
+  order       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id             String          @id @default(auto()) @map("_id") @db.ObjectId
+  chapterId      String          @db.ObjectId
+  title          String
+  description    String
+  order          Int
+  duration       Int
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  
+  chapter        Chapter         @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  studentLessons StudentLesson[]
+  
+  @@index([chapterId])
+}
+
+model StudentLesson {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  studentId   String       @db.ObjectId
+  lessonId    String       @db.ObjectId
+  status      LessonStatus
+  completedAt DateTime?
+  
+  student     User         @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  lesson      Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  
+  @@unique([studentId, lessonId])
+  @@index([studentId])
+}
+
+enum LessonStatus {
+  LOCKED
+  IN_PROGRESS
+  COMPLETED
 }

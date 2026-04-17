@@ -140,9 +140,9 @@ export default async function AdventureMap() {
               />
             </div>
             <div className="ml-8 md:ml-10">
-              <p className="text-[10px] md:text-xs font-black text-tertiary uppercase tracking-widest mb-1 font-headline">Socratic Hint</p>
+              <p className="text-[10px] md:text-xs font-black text-tertiary uppercase tracking-widest mb-1 font-headline">{t('socraticHint')}</p>
               <p className="text-xs md:text-sm text-on-surface-variant dark:text-on-surface font-medium leading-relaxed">
-                "Ready for your next adventure? Level {userLevel} unlocks new challenges!"
+                {t('readyForAdventure', { level: userLevel })}
               </p>
             </div>
           </div>
@@ -176,7 +176,7 @@ export default async function AdventureMap() {
             {quests.filter(q => q.status !== 'locked').map((quest) => (
               <li key={quest.id} className="border-b border-outline-variant/30 pb-2">
                 <p className="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">
-                  {quest.status === 'in_progress' ? 'Active' : quest.status === 'completed' ? 'Completed' : 'Available'}
+                  {quest.status === 'in_progress' ? t('active') : quest.status === 'completed' ? t('completed') : t('available')}
                 </p>
                 <p className="text-on-surface font-bold text-sm">{quest.title}</p>
                 <p className="text-xs text-on-surface-variant mt-1">{quest.description}</p>
@@ -191,7 +191,7 @@ export default async function AdventureMap() {
         
         <Link href="/student/chat">
           <button className="bg-gradient-to-r from-primary to-primary-container text-white py-4 px-4 rounded-xl font-bold hover:scale-[1.02] active:scale-95 transition-all w-full font-headline mt-auto shadow-lg shadow-primary/20">
-            Start Quest
+            {t('startQuest')}
           </button>
         </Link>
       </aside>

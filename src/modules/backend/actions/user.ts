@@ -69,3 +69,47 @@ export async function updateUserXPAction(userId: string, xpGain: number) {
     };
   }
 }
+
+export async function getModuleProgressAction(userId: string) {
+  try {
+    const { prisma } = await import('@/lib/prisma');
+    
+    // Get all knowledge nodes for this user
+    const knowledgeNodes = await prisma.knowledgeNode.findMany({
+      where: { studentId: userId }
+    });
+    
+    // Group by module (first part of nodeKey, e.g., "math" from "math.fractions.addition")
+    const moduleProgress: Record<string, { totalNodes: number; totalMastery: number; lessons: number }> = {};
+    
+    knowledgeNodes.forEach(node => {
+      const module = node.nodeKey.split('.')[0]; // e.g., "math", "science", "english", "history"
+      
+      if (!moduleProgress[module]) {
+        moduleProgress[module] = { totalNodes: 0, totalMastery: 0, lessons: 0 };
+      }
+      
+      moduleProgress[module].totalNodes++;
+      moduleProgress[module].totalMastery += node.mastery;
+    });
+    
+    // Calculate average mastery (progress) for each module
+    const modules = Object.entries(moduleProgress).map(([moduleId, data]) => ({
+      id: moduleId,
+      progress: data.totalNodes > 0 ? Math.round((data.totalMastery / data.totalNodes) * 100) : 0,
+      lessons: data.totalNodes // Number of topics/lessons tracked
+    }));
+    
+    return {
+      success: true,
+      data: modules
+    };
+  } catch (error) {
+    console.error('Failed to fetch module progress:', error);
+    return {
+      success: false,
+      error: 'Failed to fetch module progress',
+      data: []
+    };
+  }
+}

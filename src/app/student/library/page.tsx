@@ -3,7 +3,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import Link from "next/link";
 
 export default async function ResourceLibrary() {
@@ -51,12 +50,12 @@ export default async function ResourceLibrary() {
         </div>
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-6">
           <div>
-            <span className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-2 block font-headline">Student Hub</span>
+            <span className="text-sm font-bold text-primary uppercase tracking-[0.2em] mb-2 block font-headline">{t("studentHub")}</span>
             <h2 className="text-5xl font-extrabold text-on-surface tracking-tight leading-tight font-headline">
               {t("title")}
             </h2>
             <p className="mt-4 text-on-surface-variant max-w-md font-medium leading-relaxed">
-              Discover interactive learning materials powered by AI
+              {t("discoverMaterials")}
             </p>
           </div>
           <div className="w-full md:w-auto flex gap-4">
@@ -64,7 +63,7 @@ export default async function ResourceLibrary() {
               <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
               <input 
                 className="w-full pl-12 pr-4 py-4 bg-surface-container-high dark:bg-surface-container rounded-2xl border-none focus:ring-2 focus:ring-primary/20 transition-all font-medium text-on-surface outline-none" 
-                placeholder="Search resources..." 
+                placeholder={t("searchPlaceholder")}
                 type="text"
               />
             </div>
@@ -100,11 +99,11 @@ export default async function ResourceLibrary() {
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Link href={featuredResources[0].url}>
                   <button className="bg-white text-primary px-6 py-2.5 rounded-xl font-bold transition-all text-sm hover:scale-105 font-headline">
-                    Start Learning
+                    {t("startLearning")}
                   </button>
                 </Link>
                 <span className="text-white/60 text-xs font-bold uppercase tracking-widest">
-                  {featuredResources[0].duration}m
+                  {t("minutes", { count: featuredResources[0].duration })}
                 </span>
               </div>
             </div>
@@ -123,7 +122,7 @@ export default async function ResourceLibrary() {
                   <span className="material-symbols-outlined text-3xl">{getResourceIcon(resource.type)}</span>
                 </div>
                 <span className="text-[10px] font-black uppercase tracking-widest font-headline opacity-80">
-                  {resource.type}
+                  {t(resource.type as "video" | "article" | "quiz" | "interactive")}
                 </span>
               </div>
               <div className="mt-4 md:mt-0">
@@ -144,7 +143,7 @@ export default async function ResourceLibrary() {
               key={category}
               className="px-4 py-2 rounded-full text-sm font-bold bg-surface-container-low dark:bg-surface-container hover:bg-primary hover:text-white transition-all"
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {t(category as "all" | "science" | "math" | "language" | "history")}
             </button>
           ))}
         </div>
@@ -159,7 +158,7 @@ export default async function ResourceLibrary() {
                   <span className="material-symbols-outlined text-2xl">{getResourceIcon(resource.type)}</span>
                 </div>
                 <span className="text-xs font-bold text-on-surface-variant uppercase">
-                  {resource.duration}m
+                  {t("minutes", { count: resource.duration })}
                 </span>
               </div>
               <h4 className="text-lg font-bold text-on-surface mb-2 font-headline group-hover:text-primary transition-colors">
@@ -173,7 +172,7 @@ export default async function ResourceLibrary() {
                   {resource.subject}
                 </span>
                 <span className="text-xs font-bold text-primary">
-                  Difficulty: {resource.difficulty}/3
+                  {t("difficulty")}: {resource.difficulty}/3
                 </span>
               </div>
             </div>

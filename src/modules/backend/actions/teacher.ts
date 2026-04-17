@@ -71,6 +71,31 @@ export async function getPendingSubmissionsAction() {
   }
 }
 
+export async function getSubmissionByIdAction(submissionId: string) {
+  try {
+    const { submissionRepo } = await import('../repository/submissionRepo');
+    const submission = await submissionRepo.findById(submissionId);
+    
+    if (!submission) {
+      return {
+        success: false,
+        error: 'Submission not found'
+      };
+    }
+    
+    return {
+      success: true,
+      data: submission
+    };
+  } catch (error) {
+    console.error('Failed to fetch submission:', error);
+    return {
+      success: false,
+      error: 'Failed to fetch submission'
+    };
+  }
+}
+
 export async function gradeSubmissionAction(
   submissionId: string,
   feedback: string,

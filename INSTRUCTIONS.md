@@ -6,7 +6,7 @@
 ---
 
 ## 1. Frontend (FE) Module
-**Stack:** Next.js 15+ App Router, Tailwind CSS, Shadcn/UI  
+**Stack:** Next.js 16+ App Router, Tailwind CSS, Shadcn/UI  
 **Location:** `src/modules/frontend`
 
 ### Rules

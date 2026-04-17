@@ -28,33 +28,19 @@ export function TeacherSideNav() {
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>dashboard</span>
           <span>Dashboard</span>
         </Link>
-        <Link href="/teacher/lessons" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
-          <span className="material-symbols-outlined">auto_stories</span>
-          <span>Lessons</span>
+        <Link href="/teacher/students" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
+          <span className="material-symbols-outlined">group</span>
+          <span>Students</span>
         </Link>
-        <Link href="/teacher/library" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
-          <span className="material-symbols-outlined">local_library</span>
-          <span>Library</span>
-        </Link>
-        <Link href="/achievements" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
-          <span className="material-symbols-outlined">military_tech</span>
-          <span>Achievements</span>
-        </Link>
-        <Link href="/settings" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
-          <span className="material-symbols-outlined">settings</span>
-          <span>Settings</span>
+        <Link href="/teacher/review" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide hover:scale-102 transition-transform duration-300 ease-out">
+          <span className="material-symbols-outlined">rate_review</span>
+          <span>Review</span>
         </Link>
       </nav>
       <div className="px-4 mt-auto">
-        <button className="w-full bg-primary text-white py-3 rounded-xl font-headline font-bold shadow-[0_4px_0_0_#3323cc] active:shadow-none active:translate-y-1 transition-all">
-          Start Daily Quest
-        </button>
-        <div className="mt-4">
-          <Link href="/help" className="flex items-center gap-3 text-slate-500 dark:text-slate-400 mx-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 rounded-xl p-3 font-headline text-sm font-semibold tracking-wide">
-            <span className="material-symbols-outlined">help</span>
-            <span>Help Center</span>
-          </Link>
-        </div>
+        <Link href="/teacher/review" className="w-full block text-center bg-primary text-white py-3 rounded-xl font-headline font-bold shadow-[0_4px_0_0_#3323cc] active:shadow-none active:translate-y-1 transition-all">
+          Review Submissions
+        </Link>
       </div>
     </aside>
   );
